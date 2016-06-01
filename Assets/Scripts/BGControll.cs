@@ -3,21 +3,32 @@ using System.Collections;
 
 public class BGControll : MonoBehaviour {
 
-	private float mSpeed=0.5F;
+	private float mSpeed=0.6F;
+	public GameObject target;
+	private Transform _t;
+	private float threshold = 72.0f;
+	private float translate = 0;
+	private float last_position = -35.3f; //target's last postion
+	private float last_frame_position = -35.3f; //target's last postion
 	// Use this for initialization
 	void Start () {
-	
+		_t = target.transform;
+		last_position = _t.position.x;
+		last_frame_position = _t.position.x;
 	}
+
 
 	// Update is called once per frame
 	void Update () {
-		//Translate form right to left  
-		transform.Translate(Vector3.left * Time.deltaTime * mSpeed);  
+		//Translate form right to left
+		translate+= (_t.position.x-last_frame_position) * mSpeed;
+		transform.Translate(Vector3.right * (_t.position.x-last_frame_position) * mSpeed);
+		last_frame_position = _t.position.x;
 		// If first background is out of camera view,then show sencond background  
-		if(transform.position.x<=-19.4F)  
-		{  
-			//We can change this value to reduce the wdith between 2 background  
-			transform.position=new Vector3(10.2F,transform.position.y,transform.position.z);  
-		}  
+		if (_t.position.x > threshold+last_position+translate) {
+			transform.position = new Vector3 (_t.position.x + 43f, 0, transform.position.z);
+			last_position = _t.position.x;
+			translate = 0;
+		}
 	}
 }

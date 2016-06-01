@@ -1,23 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class BGEdgecontroll : MonoBehaviour {
 
-	private float mSpeed=2.0F;
+
+	public GameObject target;
+	private Transform _t;
+	private float threshold = 54.8f;
+	private float last_position = -35.3f; //target's last postion
 	// Use this for initialization
 	void Start () {
-
+		_t = target.transform;
+		last_position = _t.position.x;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//Translate form right to left  
-		transform.Translate(Vector3.left * Time.deltaTime * mSpeed);  
-		// If first background is out of camera view,then show sencond background  
-		if(transform.position.x<=-8.4F)  
-		{  
-			//We can change this value to reduce the wdith between 2 background  
-			transform.position=new Vector3(6.8F,transform.position.y,transform.position.z);  
-		}  
+		if (_t.position.x > threshold+last_position) {
+			transform.position = new Vector3 (_t.position.x + 35.3f, 0, transform.position.z);
+			last_position = _t.position.x;
+		}
 	}
+		
+
 }
