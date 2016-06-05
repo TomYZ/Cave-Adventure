@@ -16,6 +16,7 @@ public class Explode : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Deadly") {
 			OnExplode ();
+
 		}
 	}
 
