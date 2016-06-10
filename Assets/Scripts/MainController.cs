@@ -5,6 +5,7 @@ public class MainController : MonoBehaviour {
 	public float maxspeedUpDown = 5f;
 	public float speed;
 	public GameObject player;
+	public GameObject sheild;
 	public float health = 100f;	
 	public Buttons[] input;
 
@@ -57,7 +58,8 @@ public class MainController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle") {
-			UpdateHealthBar ();
+			if(sheild.GetComponent<Renderer> ().enabled == false)
+				UpdateHealthBar ();
 		}
 	}
 
