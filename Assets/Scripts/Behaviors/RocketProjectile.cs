@@ -16,7 +16,7 @@ public class RocketProjectile : AbstractBehavior {
 			var canFire = inputState.GetButtonValue(inputButtons[0]);
 
 			if(canFire && timeElapsed > shootDelay){
-				CreateProjectile(new Vector3 (transform.position.x + 2f, transform.position.y, transform.position.z));
+				CreateProjectile(new Vector3 (transform.position.x + 3f, transform.position.y, transform.position.z));
 				timeElapsed = 0;
 			}
 

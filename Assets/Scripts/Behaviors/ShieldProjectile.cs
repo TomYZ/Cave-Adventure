@@ -27,6 +27,7 @@ public class ShieldProjectile : AbstractBehavior {
 			timeElapsed += Time.deltaTime;
 		}
 
+
 	}
 
 	public void CreateProjectile(Vector2 pos){
