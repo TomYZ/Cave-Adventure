@@ -13,7 +13,12 @@ public class MainController : MonoBehaviour {
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
 	private bool ShowThisGUI = false;
+
 	private InputState inputState;
+
+	private float InitX;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +28,8 @@ public class MainController : MonoBehaviour {
 
 		healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<SpriteRenderer>();
 		healthScale = healthBar.transform.localScale;
+
+		InitX = gameObject.transform.position.x;
 
 		ShowThisGUI = true;
 	}
@@ -67,8 +74,10 @@ public class MainController : MonoBehaviour {
 	void OnGUI () {
 
 		if (ShowThisGUI) {
-			
-			GUI.Label(new Rect(10, 10, 100, 20), "Health: "+health);
+			GUI.skin.label.normal.textColor = new Vector4 (1,1,1,1);
+			GUI.skin.label.fontSize=50;
+			GUI.Label(new Rect(10, 10, 800, 400), "Health: "+health);
+			GUI.Label(new Rect(500, 10, 800, 400), "Time: "+ (int)Time.time);
 		}
 	}
 }
