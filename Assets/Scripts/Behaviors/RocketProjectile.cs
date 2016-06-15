@@ -22,6 +22,21 @@ public class RocketProjectile : AbstractBehavior {
 
 			timeElapsed += Time.deltaTime;
 		}
+	}
+
+	public void OnClick () {
+
+		if (projectilePrefab != null) {
+
+			var canFire = true;
+
+			if(canFire){
+				CreateProjectile(new Vector3 (transform.position.x + 3f, transform.position.y, transform.position.z));
+				timeElapsed = 0;
+			}
+
+			timeElapsed += Time.deltaTime;
+		}
 
 	}
 

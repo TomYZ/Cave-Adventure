@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Collectable.cs" />
      <Compile Include="Assets\Scripts\Explode.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\Input\Button.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\MainController.cs" />

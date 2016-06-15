@@ -27,6 +27,19 @@ public class Shield : AbstractBehavior {
 		}
 
 	}
+
+	public void OnClick () {
+		//var canShield = inputState.GetButtonValue(inputButtons[0]);
+		transform.position = new Vector3 (_t.position.x, _t.position.y, transform.position.z);
+		if (gameObject.GetComponent<Renderer> ().enabled == false) {
+			gameObject.GetComponent<Renderer> ().enabled = true;
+			start_time = Time.time;
+		}
+		if (gameObject.GetComponent<Renderer>().enabled == true && Time.time - start_time > 2f) {
+			gameObject.GetComponent<Renderer>().enabled = false;
+		}
+
+	}
 		
 	void OnTriggerEnter2D(Collider2D target){
 //		if (target.gameObject.tag != "Player")

@@ -41,6 +41,12 @@ public class InputManager : MonoBehaviour {
 	public InputAxisState[] inputs;
 	public InputState inputState;
 
+	public void OnClick(){
+
+
+		Debug.Log ("On Click");
+	}
+
 	// Use this for initialization
 	void Start () {
 

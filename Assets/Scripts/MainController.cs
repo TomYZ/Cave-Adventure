@@ -19,6 +19,8 @@ public class MainController : MonoBehaviour {
 
 	private float InitX;
 
+	private float t;
+	private float velocity;
 
 
 	// Use this for initialization
@@ -33,26 +35,32 @@ public class MainController : MonoBehaviour {
 		InitX = gameObject.transform.position.x;
 
 		ShowThisGUI = true;
+
+		velocity = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		float verti = Input.GetAxis ("Vertical");
-		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
-		anim.SetFloat ("Speed", Mathf.Abs(verti));
+		if (velocity != 0) {
+			if (Time.time - t >= 0.1) {
+				velocity = 0;
+			}
+		}
+			rb2d.velocity = new Vector2(speed, velocity * maxspeedUpDown);
+			anim.SetFloat ("Speed", Mathf.Abs(velocity));
+	}
 
-		// var up = inputState.GetButtonValue (input [0]);
-		// var down = inputState.GetButtonValue (input [1]);
+	public void OnClickUp(){
+		velocity = 1;
+		t = Time.time;
 
-		// var temSpeed = maxspeedUpDown;
-		// var velY = temSpeed * (float)inputState.direction;
 
-		// if (up || down) {
-		// 	velY *= down ? -1 : 1;
-		// } else {
-		//	velY = 0;
-		//}
-		//rb2d.velocity = new Vector2(speed, velY);
+	}
+
+	public void OnClickDown(){
+		velocity = -1;
+		t = Time.time;
+
 
 	}
 
