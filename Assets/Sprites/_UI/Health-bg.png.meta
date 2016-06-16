@@ -45,12 +45,7 @@ TextureImporter:
   spritePixelsToUnits: 60
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: iPhone
-    maxTextureSize: 512
-    textureFormat: -1
-    compressionQuality: 0
-    allowsAlphaSplitting: 0
+  buildTargetSettings: []
   spriteSheet:
     sprites:
     - name: Health-bg

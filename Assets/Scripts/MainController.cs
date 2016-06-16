@@ -22,7 +22,6 @@ public class MainController : MonoBehaviour {
 	private float t;
 	private float velocity;
 
-	private int start = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -42,8 +41,6 @@ public class MainController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (start == 0)
-			return;
 		if (velocity != 0) {
 			if (Time.time - t >= 0.1) {
 				velocity = 0;
@@ -53,9 +50,6 @@ public class MainController : MonoBehaviour {
 			anim.SetFloat ("Speed", Mathf.Abs(velocity));
 	}
 
-	public void StartGame(){
-		start=1;
-	}
 	public void OnClickUp(){
 		velocity = 1;
 		t = Time.time;
