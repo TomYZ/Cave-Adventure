@@ -21,7 +21,7 @@ public class MainController : MonoBehaviour {
 
 	private float t;
 	private float velocity;
-
+	private int start;
 
 	// Use this for initialization
 	void Start () {
@@ -37,10 +37,13 @@ public class MainController : MonoBehaviour {
 		ShowThisGUI = true;
 
 		velocity = 0;
+		start = 0;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if (start == 0)
+			return;
 		if (velocity != 0) {
 			if (Time.time - t >= 0.1) {
 				velocity = 0;
@@ -50,6 +53,9 @@ public class MainController : MonoBehaviour {
 			anim.SetFloat ("Speed", Mathf.Abs(velocity));
 	}
 
+	public void startGame(){
+		start = 1;
+	}
 	public void OnClickUp(){
 		velocity = 1;
 		t = Time.time;
@@ -87,8 +93,9 @@ public class MainController : MonoBehaviour {
 			GUI.skin.label.normal.textColor = new Vector4 (1,1,1,1);
 			GUI.skin.label.fontSize=50;
 			GUI.Label(new Rect(10, 10, 800, 400), "Health: "+health);
-			GUI.Label(new Rect(500, 10, 800, 400), "Time: "+ (int)Time.time);
+			GUI.Label(new Rect(300, 10, 800, 400), "Score: "+ (int)((gameObject.transform.position.x+33)/10));
 		}
 	}
+
 }
 

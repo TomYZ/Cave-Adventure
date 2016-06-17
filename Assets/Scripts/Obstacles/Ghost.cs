@@ -9,16 +9,20 @@ public class Ghost : MonoBehaviour {
 	public int attack1Damage = 10;
 	public float timeBetweenAttacks;
 
-
+	private int start;
 	// Use this for initialization
 	void Start ()
 	{
-		
+		start = 0;
 	}
-
+	public void startGame(){
+		start = 1;
+	}
 	// Update is called once per frame
 	void Update ()
 	{
+		if (start == 0)
+			return;
 		MoveToPlayer ();
 	}
 
