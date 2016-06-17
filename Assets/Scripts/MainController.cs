@@ -8,6 +8,7 @@ public class MainController : MonoBehaviour {
 	public GameObject sheild;
 	public float health = 100f;	
 	public Buttons[] input;
+    public bool isboost = false;
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -71,7 +72,7 @@ public class MainController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		if (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle") {
+		if (isboost==false && (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle")) {
 			if(sheild.GetComponent<Renderer> ().enabled == false)
 				UpdateHealthBar ();
 		}
@@ -86,8 +87,14 @@ public class MainController : MonoBehaviour {
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
 		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 	}
-
-	void OnGUI () {
+    public void BostHealthBar()
+    {
+        health = 100f;
+        ShowThisGUI = true;
+        healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
+        healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+    }
+    void OnGUI () {
 
 		if (ShowThisGUI) {
 			GUI.skin.label.normal.textColor = new Vector4 (1,1,1,1);
