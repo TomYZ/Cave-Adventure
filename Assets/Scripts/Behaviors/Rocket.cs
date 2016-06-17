@@ -28,7 +28,7 @@ public class Rocket : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag != "Coin" && target.gameObject.tag != "Items")
+		if (target.gameObject.tag != "Coin")
 			Destroy (gameObject);
 	}
 }
