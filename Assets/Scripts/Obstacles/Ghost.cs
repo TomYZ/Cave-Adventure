@@ -10,7 +10,7 @@ public class Ghost : MonoBehaviour {
 	public float timeBetweenAttacks;
 
 	private int start;
-
+	private float start_time;
 	private float moveUporDown=0.2f;
 	private float timeToChange=0;
 	// Use this for initialization
@@ -18,6 +18,7 @@ public class Ghost : MonoBehaviour {
 	{
 		start = 0;
 		timeToChange = Time.time;
+		start_time = Time.time;
 	}
 	public void startGame(){
 		start = 1;
@@ -33,6 +34,10 @@ public class Ghost : MonoBehaviour {
 		}
 
 		MoveToPlayer ();
+
+		if (Time.time - start_time  > 7) {
+			Destroy (gameObject);
+		}
 
 	}
 
