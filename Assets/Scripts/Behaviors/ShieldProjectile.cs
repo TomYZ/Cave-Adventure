@@ -11,6 +11,7 @@ public class ShieldProjectile : AbstractBehavior {
 
 	private float timeElapsed = 0f;
 
+
 	// Update is called once per frame
 	void Update () {
 

@@ -10,10 +10,14 @@ public class Ghost : MonoBehaviour {
 	public float timeBetweenAttacks;
 
 	private int start;
+
+	private float moveUporDown=0.2f;
+	private float timeToChange=0;
 	// Use this for initialization
 	void Start ()
 	{
 		start = 0;
+		timeToChange = Time.time;
 	}
 	public void startGame(){
 		start = 1;
@@ -21,22 +25,31 @@ public class Ghost : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (start == 0)
-			return;
+//		if (start == 0)
+//			return;
+		if (gameObject.transform.position.y>3f||gameObject.transform.position.y<-3f) {
+			moveUporDown*=-1;
+			//timeToChange = Time.time;
+		}
+
 		MoveToPlayer ();
+
 	}
 
 	public void MoveToPlayer ()
 	{
 		//rotate to look at player
-		transform.LookAt (target.position);
-		transform.Rotate (new Vector3 (0, 90, 0), Space.Self);
+//		transform.LookAt (target.position);
+//		transform.Rotate (new Vector3 (0, 90, 0), Space.Self);
 
 		//move towards player
-		if (Vector3.Distance (transform.position, target.position) > attack1Range) 
-		{
-			transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-		}
+//		if (Vector3.Distance (transform.position, target.position) > attack1Range) 
+//		{
+//			transform.Translate (new Vector3 (0, moveUporDown, 0));
+//			print (moveUporDown);
+//		}
+		transform.Translate (new Vector3 (0, moveUporDown, 0));
+
 	}
 
 	void OnCollisionEnter2D(Collision2D target){

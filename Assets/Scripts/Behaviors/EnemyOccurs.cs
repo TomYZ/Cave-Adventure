@@ -13,10 +13,10 @@ public class EnemyOccurs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time - start_time > 1) {
+		if (Time.time - start_time > 4) {
 			start_time = Time.time;
 
-				CreateProjectile(new Vector3 (transform.position.x + 20f, transform.position.y, transform.position.z));
+				CreateProjectile(new Vector3 (transform.position.x + 20f,1.5f, transform.position.z));
 
 		}
 	}

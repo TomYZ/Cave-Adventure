@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BGControll : MonoBehaviour {
 
-	private float mSpeed=0.6F;
+	private float mSpeed=0;
 	public GameObject target;
 	private Transform _t;
 	private float threshold = 72.0f;

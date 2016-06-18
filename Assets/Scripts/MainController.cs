@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MainController : MonoBehaviour {
-	public float maxspeedUpDown = 5f;
+	public float maxspeedUpDown ;
 	public float speed;
 	public GameObject player;
 	public GameObject sheild;
@@ -23,6 +23,8 @@ public class MainController : MonoBehaviour {
 	private float velocity;
 	private int start;
 
+
+
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D>();
@@ -38,6 +40,9 @@ public class MainController : MonoBehaviour {
 
 		velocity = 0;
 		start = 0;
+
+
+
 	}
 
 	// Update is called once per frame
@@ -45,11 +50,12 @@ public class MainController : MonoBehaviour {
 		if (start == 0)
 			return;
 		if (velocity != 0) {
-			if (Time.time - t >= 0.1) {
+			if (Time.time - t >= 0.5) {
 				velocity = 0;
 			}
 		}
 			rb2d.velocity = new Vector2(speed, velocity * maxspeedUpDown);
+			
 			anim.SetFloat ("Speed", Mathf.Abs(velocity));
 	}
 
@@ -72,8 +78,9 @@ public class MainController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle") {
-			if(sheild.GetComponent<Renderer> ().enabled == false)
+			if (sheild.GetComponent<Renderer> ().enabled == false) {
 				UpdateHealthBar ();
+			}
 		}
 	}
 
@@ -81,6 +88,7 @@ public class MainController : MonoBehaviour {
 		health -= 10f;
 		ShowThisGUI = true;
 		if (health <= 0) {
+			
 			Destroy (gameObject);
 		}
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
@@ -93,7 +101,8 @@ public class MainController : MonoBehaviour {
 			GUI.skin.label.normal.textColor = new Vector4 (1,1,1,1);
 			GUI.skin.label.fontSize=50;
 			GUI.Label(new Rect(10, 10, 800, 400), "Health: "+health);
-			GUI.Label(new Rect(300, 10, 800, 400), "Score: "+ (int)((gameObject.transform.position.x+33)/10));
+			//GUI.Label(new Rect(300, 10, 800, 400), "Score: "+ (int)((gameObject.transform.position.x+33)/10));
+
 		}
 	}
 

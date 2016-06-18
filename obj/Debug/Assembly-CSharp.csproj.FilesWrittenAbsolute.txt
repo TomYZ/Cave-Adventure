@@ -81,3 +81,5 @@
 /Users/zhenyang/Documents/Github/Git/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/zhenyang/Documents/Github/Git/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/zhenyang/Documents/Github/Git/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/zhenyang/Documents/Github/Git/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/zhenyang/Documents/Github/Git/Temp/bin/Debug/Assembly-CSharp.dll
