@@ -43,7 +43,7 @@ public class EnemyOccurs : MonoBehaviour {
 		if (transform.position.x - last_position > enemy_delay) {
 			last_position = transform.position.x;
 			randomNum=Random.Range (0f, 1f);
-			if (randomNum <= 1) {
+			if (randomNum <= 0.3) {
 
 				CreateEnemyCannon (new Vector3 (transform.position.x + 20f, -4f, transform.position.z));
 			}
