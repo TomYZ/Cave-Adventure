@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Player") {
 			cointCollected++;
-			print (cointCollected);
+			//print (cointCollected);
 			if (cointCollected % 10 == 0) {
 				print ("inside if");
 				target.gameObject.GetComponent<RocketProjectile> ().canFire = true;

@@ -3,16 +3,25 @@ using System.Collections;
 
 public class Cannon :AbstractBehavior {
 
-	public float shootDelay ;
+	public float shootDelay,lifetime;
 	public GameObject projectilePrefab;
 
 	private float timeElapsed = 0f;
 
 	// Update is called once per frame
+	void OnBecameInvisible() {
+		Destroy (gameObject);
+	}
+	void Start(){
+		lifetime = Time.time;
+	}
 	void Update () {
+		if (Time.time - lifetime > 7f) {
+			Destroy (gameObject);
 
+		}
 		if (projectilePrefab != null) {
-
+			
 			var canFire = true;
 
 			if(canFire && (timeElapsed > shootDelay)){

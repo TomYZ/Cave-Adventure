@@ -1,11 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Obstacles/Bullet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Obstacles/Ghost_up.cs" Line="41" Column="3" />
-      <File FileName="Assets/Scripts/Collectable.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Behaviors/EnemyOccurs.cs" Line="44" Column="41" />
+      <File FileName="Assets/Scripts/Obstacles/Cannon.cs" Line="31" Column="4" />
+      <File FileName="Assets/Scripts/Obstacles/Ghost_up.cs" Line="20" Column="15" />
+      <File FileName="Assets/Scripts/Collectable.cs" Line="11" Column="2" />
       <File FileName="Assets/Scripts/Behaviors/RocketProjectile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Behaviors/Rocket.cs" Line="18" Column="45" />
+      <File FileName="Assets/Scripts/Behaviors/Rocket.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Behaviors/Shield.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CameraFollow.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BGEdgecontroll.cs" Line="1" Column="1" />
@@ -17,15 +19,14 @@
       <File FileName="Assets/Scripts/Behaviors/ShieldProjectile.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Windows/GameoverWindow.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Windows/GenericWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MainController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Behaviors/EnemyOccurs.cs" Line="17" Column="34" />
+      <File FileName="Assets/Scripts/MainController.cs" Line="88" Column="3" />
       <File FileName="Assets/Scripts/Explode.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/HealthBar.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Windows/WindowManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Input/InputManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Obstacles/ObstacleSpawner.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Obstacles/Ghost_left.cs" Line="19" Column="3" />
-      <File FileName="Assets/Scripts/Obstacles/Bullet.cs" Line="7" Column="18" />
+      <File FileName="Assets/Scripts/Obstacles/Bullet.cs" Line="26" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

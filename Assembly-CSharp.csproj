@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\Behaviors\ShieldProjectile.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Collectable.cs" />
+     <Compile Include="Assets\Scripts\EdgeAppear.cs" />
+     <Compile Include="Assets\Scripts\EdgeDisappear.cs" />
      <Compile Include="Assets\Scripts\Explode.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />

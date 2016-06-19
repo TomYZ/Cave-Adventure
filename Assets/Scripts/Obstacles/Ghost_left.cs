@@ -15,7 +15,7 @@ public class Ghost_left : MonoBehaviour {
 	private float timeToChange=0;
 	// Use this for initialization
 	void OnBecameInvisible() {
-		enabled = false;
+		Destroy (gameObject);
 	}
 	void Start ()
 	{
