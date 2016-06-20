@@ -17,7 +17,7 @@ public class WindowManager : MonoBehaviour {
 		for (var i = 0; i < total; i++) {
 			var window = windows [i];
 			if (i == value)
-				window.Open ();
+				window.Open2 ();
 			else if (window.gameObject.activeSelf)
 				window.Close ();
 		}

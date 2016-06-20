@@ -30,7 +30,7 @@ public class RocketProjectile : AbstractBehavior {
 
 			var canFire = true;
 
-			if(canFire){
+			if(canFire && timeElapsed > shootDelay){
 				CreateProjectile(new Vector3 (transform.position.x + 3f, transform.position.y, transform.position.z));
 				timeElapsed = 0;
 			}

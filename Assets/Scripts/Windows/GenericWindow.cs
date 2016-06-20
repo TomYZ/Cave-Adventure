@@ -22,7 +22,7 @@ public class GenericWindow : MonoBehaviour {
 		gameObject.SetActive (value);
 	}
 
-	public virtual void Open(){
+	public virtual void Open2(){
 		Display (true);
 		OnFocus ();
 	}

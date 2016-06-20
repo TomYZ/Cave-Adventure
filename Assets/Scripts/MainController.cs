@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class MainController : MonoBehaviour {
 	public float maxspeedUpDown = 5f;
@@ -41,32 +42,24 @@ public class MainController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
-		if (start == 0)
-			return;
-		if (velocity != 0) {
-			if (Time.time - t >= 0.1) {
-				velocity = 0;
-			}
-		}
-			rb2d.velocity = new Vector2(speed, velocity * maxspeedUpDown);
-			anim.SetFloat ("Speed", Mathf.Abs(velocity));
+	void FixedUpdate () {
+
+
+	/*	float verti = Input.GetAxis ("Vertical");
+		anim.SetFloat ("Speed", Mathf.Abs(verti));
+		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown); */
+
+		float verti = CrossPlatformInputManager.GetAxis ("Vertical");
+		anim.SetFloat ("Speed", Mathf.Abs(verti));
+		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
+
 	}
 
 	public void startGame(){
 		start = 1;
+
 	}
 	public void OnClickUp(){
-		velocity = 1;
-		t = Time.time;
-
-
-	}
-
-	public void OnClickDown(){
-		velocity = -1;
-		t = Time.time;
-
 
 	}
 
