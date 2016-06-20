@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\MainController.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Cannon.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost_left.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost_up.cs" />
