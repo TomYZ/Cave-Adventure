@@ -14,11 +14,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 			OnlyHorizontal, // Only horizontal
 			OnlyVertical // Only vertical
 		}
-
-		public GameObject target;
-		private Transform _t;
-		private int screenratio = 40;
-		public int MovementRange = 70;
+			
+		public int MovementRange = 100;
 		public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use
 		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
 		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
@@ -32,19 +29,12 @@ namespace UnityStandardAssets.CrossPlatformInput
 		void Start()
 		{
 			m_StartPos = transform.position;
-			_t = target.transform;
 		}
 
-		void Update()
+		void OnEnable()
 		{
-			transform.position = new Vector3 (transform.position.x, (_t.position.y * screenratio) + m_StartPos.y, transform.position.z);
-		}
-
-
-        void OnEnable()
-        {
 			CreateVirtualAxes ();
-        }
+		}
 
 		void UpdateVirtualAxes(Vector3 value)
 		{
