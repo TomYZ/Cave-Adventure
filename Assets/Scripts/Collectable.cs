@@ -17,7 +17,9 @@ public class Collectable : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag == "Player")
+		if (target.gameObject.tag == "Player") {
+			target.gameObject.GetComponent<MainController> ().getCoin();
 			Destroy (gameObject);
+		}
 	}
 }

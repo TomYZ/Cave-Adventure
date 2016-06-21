@@ -31,6 +31,9 @@ public class Boost : MonoBehaviour {
 	IEnumerator ActivateBoost()
 	{
 		target.gameObject.GetComponent<MainController>().isboost = true;
+
+		target.gameObject.GetComponent<MainController> ().getReward();
+
 		target.gameObject.GetComponent<MainController>().speed = boostSpeed;
 		yield return null;
 

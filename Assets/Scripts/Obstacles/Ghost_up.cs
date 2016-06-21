@@ -65,6 +65,7 @@ public class Ghost_up : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
+			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getReward();
 			Destroy (gameObject);
 		}
 	}
