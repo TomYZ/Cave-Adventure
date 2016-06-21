@@ -21,7 +21,7 @@ public class EdgeAppear : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x - last_position > 20) {
+		if (transform.position.x - last_position > 40) {
 			last_position = transform.position.x;
 			System.Random ro = new System.Random(); 
 			int iResult;

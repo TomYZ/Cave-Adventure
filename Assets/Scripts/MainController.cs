@@ -48,7 +48,9 @@ public class MainController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-
+		if (start == 0) {
+			return;
+		}
 
 		/*	float verti = Input.GetAxis ("Vertical");
 		anim.SetFloat ("Speed", Mathf.Abs(verti));
