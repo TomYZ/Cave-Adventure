@@ -10,11 +10,13 @@ public class BGControll : MonoBehaviour {
 	private float translate = 0;
 	private float last_position = -35.3f; //target's last postion
 	private float last_frame_position = -35.3f; //target's last postion
+	private float diffbetweencharandbf;
 	// Use this for initialization
 	void Start () {
 		_t = target.transform;
 		last_position = _t.position.x;
 		last_frame_position = _t.position.x;
+		diffbetweencharandbf = transform.position.x - _t.position.x;
 	}
 
 
@@ -26,7 +28,7 @@ public class BGControll : MonoBehaviour {
 		last_frame_position = _t.position.x;
 		// If first background is out of camera view,then show sencond background  
 		if (_t.position.x > threshold+last_position+translate) {
-			transform.position = new Vector3 (_t.position.x + 43f, 0, transform.position.z);
+			transform.position = new Vector3 (_t.position.x + diffbetweencharandbf, 0, transform.position.z);
 			last_position = _t.position.x;
 			translate = 0;
 		}

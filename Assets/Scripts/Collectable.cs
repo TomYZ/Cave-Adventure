@@ -4,10 +4,13 @@ using System.Collections;
 public class Collectable : MonoBehaviour {
 
 	// Use this for initialization
+	void OnBecameInvisible() {
+		Destroy (gameObject);
+	}
 	void Start () {
 	
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
