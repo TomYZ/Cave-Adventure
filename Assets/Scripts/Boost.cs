@@ -35,6 +35,7 @@ public class Boost : MonoBehaviour {
 		target.gameObject.GetComponent<MainController> ().getReward();
 
 		target.gameObject.GetComponent<MainController>().speed = boostSpeed;
+
 		yield return null;
 
 	}
@@ -44,6 +45,7 @@ public class Boost : MonoBehaviour {
 		yield return new WaitForSeconds(boostTime);
 		target.gameObject.GetComponent<MainController>().isboost = false;
 		target.gameObject.GetComponent<MainController>().speed = 10f;
+
 		Destroy(gameObject);
 	}
 }

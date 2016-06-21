@@ -33,7 +33,7 @@ public class coinOccurance : MonoBehaviour {
 					shift = 0.5f;
 				}
 				y = y + shift;
-				print(y + " shift: " + shift);
+
 				CreateCoins(new Vector3(transform.position.x + i + 15f, y, transform.position.z));
 
 			}
