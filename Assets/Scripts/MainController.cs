@@ -26,6 +26,8 @@ public class MainController : MonoBehaviour {
 	private float velocity;
 	private int start;
 	private int score;
+	private float explosionDelay = 1.5f;
+	private float explosionTime = 100000f;
 
 	// Use this for initialization
 	void Start () {
@@ -57,18 +59,20 @@ public class MainController : MonoBehaviour {
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown); */
 
 		float verti = CrossPlatformInputManager.GetAxis ("Vertical");
-		anim.SetFloat ("Speed", Mathf.Abs(verti));
+		anim.SetFloat ("Health", health);
+		anim.SetFloat ("Speed", verti);
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
 
+		if (Time.time > explosionTime) {
+			Destroy (gameObject);
+		}
 	}
 
 	public void startGame(){
 		start = 1;
 
 	}
-	public void OnClickUp(){
 
-	}
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (isboost == false && (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle"|| col.gameObject.tag == "Bullet"))
@@ -93,7 +97,7 @@ public class MainController : MonoBehaviour {
 
 		ShowThisGUI = true;
 		if (health <= 0) {
-			Destroy (gameObject);
+			explosionTime = Time.time + explosionDelay;
 		}
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
 		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
