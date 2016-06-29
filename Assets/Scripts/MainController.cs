@@ -5,10 +5,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class MainController : MonoBehaviour {
 	public float maxspeedUpDown = 5f;
 	public float speed;
-	public GameObject player;
 	public GameObject sheild;
 	public float health = 100f;	
-	public Buttons[] input;
 	public bool isboost = false;
 	public float boostDuration = 2.5f;
 
@@ -20,12 +18,11 @@ public class MainController : MonoBehaviour {
 
 	private InputState inputState;
 
-	private float InitX;
-
 	private float t;
 	private float velocity;
-	private int start;
-	private int score;
+	private int start = 0;
+	private int score = 0;
+	private int coin;
 	private float explosionDelay = 1.5f;
 	private float explosionTime = 100000f;
 
@@ -37,10 +34,6 @@ public class MainController : MonoBehaviour {
 
 		healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<SpriteRenderer>();
 		healthScale = healthBar.transform.localScale;
-
-		InitX = gameObject.transform.position.x;
-
-		ShowThisGUI = true;
 
 		velocity = 0;
 		start = 0;
@@ -71,6 +64,7 @@ public class MainController : MonoBehaviour {
 
 	public void startGame(){
 		start = 1;
+		ShowThisGUI = true;
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
@@ -78,7 +72,7 @@ public class MainController : MonoBehaviour {
 		{
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
 				if (col.gameObject.tag == "Edge") {
-					health -= 10;
+					health -= 20;
 				}
 				if (col.gameObject.tag == "Obstacle") {
 					health -= 20;
@@ -94,19 +88,20 @@ public class MainController : MonoBehaviour {
 
 	void UpdateHealthBar(){
 
-		ShowThisGUI = true;
-		if (health <= 0) {
+		if (health > 0) {
+			healthBar.transform.localScale = new Vector3 (healthScale.x * health * 0.01f, 1, 1);
+			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
+		} else if (health <= 0) {
+			healthBar.transform.localScale = new Vector3 (0, 1, 1);
+			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
 			explosionTime = Time.time + explosionDelay;
 		}
-		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
-		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 	}
 
 	public void BostHealthBar()
 	{
 		getReward ();
 		health = 100f;
-		ShowThisGUI = true;
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
 		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 	}
@@ -114,18 +109,22 @@ public class MainController : MonoBehaviour {
 		score += 50;
 	}
 	public void getCoin(){
-		score += 10;
+		coin += 10;
 	}
 	public void getEnemy(){
 		score += 100;
 	}
+
 	void OnGUI () {
 
 		if (ShowThisGUI) {
-			GUI.skin.label.normal.textColor = new Vector4 (1,1,1,1);
-			GUI.skin.label.fontSize=50;
-			GUI.Label(new Rect(10, 10, 800, 400), "Health: "+health);
-			GUI.Label(new Rect(300, 10, 800, 400), "Score: "+ (int)(score+33+transform.position.x));
+			GUI.color = Color.yellow;
+			GUI.skin.box.fontSize = 16;
+			GUI.skin.box.fontStyle = FontStyle.Bold;
+
+			GUI.Box(new Rect(430, 5, 60, 24), "" + (int)(score+33+transform.position.x));
+			GUI.Box(new Rect(534, 5, 60, 24), ""+ coin);
+
 		}
 	}
 
