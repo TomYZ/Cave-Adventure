@@ -37,11 +37,11 @@ public class RocketProjectile : AbstractBehavior {
 
 			timeElapsed += Time.deltaTime;
 		}
-
 	}
 
-	public void CreateProjectile(Vector2 pos){
-		var clone = Instantiate (projectilePrefab, pos, Quaternion.identity) as GameObject;
+
+	public void CreateProjectile(Vector3 pos){
+		var clone = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
 		clone.transform.localScale = transform.localScale;
 	}
 }

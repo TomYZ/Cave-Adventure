@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		target = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame

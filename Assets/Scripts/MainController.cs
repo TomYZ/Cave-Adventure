@@ -65,27 +65,26 @@ public class MainController : MonoBehaviour {
 
 		if (Time.time > explosionTime) {
 			Destroy (gameObject);
+			GenericWindow.manager.Open (2);
 		}
 	}
 
 	public void startGame(){
 		start = 1;
-
 	}
-
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (isboost == false && (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle"|| col.gameObject.tag == "Bullet"))
 		{
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
 				if (col.gameObject.tag == "Edge") {
-					health -= 2;
+					health -= 10;
 				}
 				if (col.gameObject.tag == "Obstacle") {
-					health -= 5;
+					health -= 20;
 				}
 				if (col.gameObject.tag == "Bullet") {
-					health -= 5;
+					health -= 20;
 				}
 
 				UpdateHealthBar ();

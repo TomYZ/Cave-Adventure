@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\Behaviors\ShieldProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\coinOccurance.cs" />
      <Compile Include="Assets\Scripts\Boost.cs" />
-     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Collectable.cs" />
      <Compile Include="Assets\Scripts\EdgeAppear.cs" />
      <Compile Include="Assets\Scripts\EdgeDisappear.cs" />
@@ -77,9 +76,15 @@
      <Compile Include="Assets\Scripts\Obstacles\ObstacleVelocity.cs" />
      <Compile Include="Assets\Scripts\PlayVedio.cs" />
      <Compile Include="Assets\Scripts\ShieldFollow.cs" />
+     <Compile Include="Assets\Scripts\Windows\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Windows\DestroyOffscreen.cs" />
+     <Compile Include="Assets\Scripts\Windows\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Windows\GameObjectUtil.cs" />
      <Compile Include="Assets\Scripts\Windows\GameoverWindow.cs" />
      <Compile Include="Assets\Scripts\Windows\GenericWindow.cs" />
      <Compile Include="Assets\Scripts\Windows\InGameWindow.cs" />
+     <Compile Include="Assets\Scripts\Windows\PixelPerfectCamera.cs" />
+     <Compile Include="Assets\Scripts\Windows\RecycleGameObject.cs" />
      <Compile Include="Assets\Scripts\Windows\StartWindow.cs" />
      <Compile Include="Assets\Scripts\Windows\WindowManager.cs" />
      <Compile Include="Assets\Scripts\heathUp.cs" />
