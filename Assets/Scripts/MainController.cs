@@ -15,7 +15,6 @@ public class MainController : MonoBehaviour {
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
 	private bool ShowThisGUI = false;
-
 	private InputState inputState;
 
 	private float t;
@@ -37,7 +36,6 @@ public class MainController : MonoBehaviour {
 
 		velocity = 0;
 		start = 0;
-
 		score = 0;
 	}
 
@@ -48,7 +46,6 @@ public class MainController : MonoBehaviour {
 		}
 
 		/*	float verti = Input.GetAxis ("Vertical");
-		anim.SetFloat ("Speed", Mathf.Abs(verti));
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown); */
 
 		float verti = CrossPlatformInputManager.GetAxis ("Vertical");
