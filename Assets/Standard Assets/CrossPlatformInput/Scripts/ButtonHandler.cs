@@ -44,7 +44,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void Update()
         {
-
         }
     }
 }

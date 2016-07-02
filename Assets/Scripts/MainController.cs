@@ -121,7 +121,6 @@ public class MainController : MonoBehaviour {
 
 			GUI.Box(new Rect(430, 5, 60, 24), "" + (int)(score+33+transform.position.x));
 			GUI.Box(new Rect(534, 5, 60, 24), ""+ coin);
-
 		}
 	}
 

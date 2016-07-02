@@ -4,11 +4,13 @@ using System.Collections;
 public class RocketProjectile : AbstractBehavior {
 
 	public float shootDelay = .5f;
-	public static float timeElapsed = 0f;
 	public GameObject projectilePrefab;
+
+	public static float timeElapsed = 0f;
 
 	// Use this for initialization
 	void Start () {
+
 	}
 		
 	// Update is called once per frame
