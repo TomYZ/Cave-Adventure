@@ -44,7 +44,7 @@ public class Boost : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(boostTime);
 		target.gameObject.GetComponent<MainController>().isboost = false;
-		target.gameObject.GetComponent<MainController>().speed = 10f;
+		target.gameObject.GetComponent<MainController>().speed = 0f;
 
 		Destroy(gameObject);
 	}

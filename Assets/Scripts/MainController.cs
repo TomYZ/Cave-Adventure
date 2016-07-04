@@ -18,7 +18,6 @@ public class MainController : MonoBehaviour {
 	private InputState inputState;
 
 	private float t;
-	private float velocity;
 	private int start = 0;
 	private int score = 0;
 	private int coin;
@@ -34,7 +33,6 @@ public class MainController : MonoBehaviour {
 		healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<SpriteRenderer>();
 		healthScale = healthBar.transform.localScale;
 
-		velocity = 0;
 		start = 0;
 		score = 0;
 	}

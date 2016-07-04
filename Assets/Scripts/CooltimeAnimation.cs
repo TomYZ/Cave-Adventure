@@ -12,9 +12,7 @@ public class CooltimeAnimation : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
 		anim2.SetFloat ("Time", RocketProjectile.timeElapsed);
-
 	}
 }
 
