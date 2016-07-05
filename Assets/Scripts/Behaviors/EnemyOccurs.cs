@@ -55,7 +55,16 @@ public class EnemyOccurs : MonoBehaviour {
 
 
 	}
-
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "Rocket")
+		{
+			
+			SoundManager.soundManager.PlaySound ();
+			Destroy (col.gameObject);
+			Destroy (this.gameObject);
+		}
+	}
 	public void CreateEnemyUp(Vector2 pos){
 		var clone_up = Instantiate (Ghost_up_prefab, pos, Quaternion.identity) as GameObject;
 		//var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;

@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Collectable : MonoBehaviour {
+	
+
 
 	// Use this for initialization
 	void OnBecameInvisible() {
@@ -18,8 +20,10 @@ public class Collectable : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Player") {
+			
 			target.gameObject.GetComponent<MainController> ().getCoin();
 			Destroy (gameObject);
+
 		}
 	}
 }

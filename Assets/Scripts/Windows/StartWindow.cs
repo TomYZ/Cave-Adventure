@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class StartWindow : GenericWindow {
+	public AudioSource sound;
 
 	/*public Button continueButton;
 
@@ -21,5 +22,6 @@ public class StartWindow : GenericWindow {
 
 	public void NewGame(){
 		manager.Open (1);
+		sound.Play ();
 	}
 }

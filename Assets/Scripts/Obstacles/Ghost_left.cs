@@ -68,6 +68,7 @@ public class Ghost_left : MonoBehaviour {
 		if (target.gameObject.tag == "Rocket") {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getEnemy();
 			Destroy (gameObject);
+
 		}
 	}
 }

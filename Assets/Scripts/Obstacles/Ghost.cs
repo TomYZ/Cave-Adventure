@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Ghost : MonoBehaviour {
-
+	
 	public Transform target;
 	public float speed = 3f;
 	public float attack1Range = 3f;
@@ -47,6 +47,7 @@ public class Ghost : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
 			Destroy (gameObject);
+
 		}
 	}
 }
