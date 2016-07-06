@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class BGControll : MonoBehaviour {
-
+	public Texture texture;
+	public float wherestarStage2;
 	private float mSpeed=0.6F;
 	public GameObject target;
 	private Transform _t;
@@ -31,6 +32,11 @@ public class BGControll : MonoBehaviour {
 			transform.position = new Vector3 (_t.position.x + diffbetweencharandbf, 0, transform.position.z);
 			last_position = _t.position.x;
 			translate = 0;
+		}
+		if(transform.position.x> wherestarStage2)
+		{
+			GetComponent<Renderer>().material.mainTexture = texture;
+			threshold = 50f;
 		}
 	}
 }
