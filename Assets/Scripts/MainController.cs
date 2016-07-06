@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour {
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
 	private bool ShowThisGUI = false;
+	private bool healthChange = false;
 	private InputState inputState;
 
 	private float t;
@@ -51,6 +52,7 @@ public class MainController : MonoBehaviour {
 		anim.SetFloat ("Speed", verti);
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
 
+	
 		if (Time.time > explosionTime) {
 			Destroy (gameObject);
 			GenericWindow.manager.Open (2);
@@ -67,7 +69,7 @@ public class MainController : MonoBehaviour {
 		{
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
 				if (col.gameObject.tag == "Edge") {
-					health -= 20;
+					health -= 10;
 				}
 				if (col.gameObject.tag == "Obstacle") {
 					health -= 20;
@@ -100,6 +102,7 @@ public class MainController : MonoBehaviour {
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
 		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 	}
+
 	public void getReward(){
 		score += 50;
 	}
@@ -114,11 +117,11 @@ public class MainController : MonoBehaviour {
 
 		if (ShowThisGUI) {
 			GUI.color = Color.yellow;
-			GUI.skin.box.fontSize = 16;
+			GUI.skin.box.fontSize = 70;
 			GUI.skin.box.fontStyle = FontStyle.Bold;
 
-			GUI.Box(new Rect(430, 5, 60, 24), "" + (int)(score+33+transform.position.x));
-			GUI.Box(new Rect(534, 5, 60, 24), ""+ coin);
+			GUI.Box(new Rect(1830, 10, 250, 100), "" + (int)(score+33+transform.position.x));
+			GUI.Box(new Rect(2285, 10, 250, 100), ""+ coin);
 		}
 	}
 
