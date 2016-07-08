@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\heathUp.cs" Line="25" Column="1" />
+      <File FileName="Assets\Scripts\MainController.cs" Line="113" Column="1" />
+      <File FileName="Assets\Scripts\Collectable.cs" Line="15" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Han jun\Documents\Cave-Adventure\last\Assets\Scripts\Obstacles\Ghost_up.cs" line="13" column="1" />
+      <Breakpoint file="C:\Users\Han jun\Documents\Cave-Adventure\last\Assets\Scripts\MainController.cs" line="9" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
