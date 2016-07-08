@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -10,6 +11,9 @@ public class MainController : MonoBehaviour {
 	public bool isboost = false;
 	public float boostDuration = 2.5f;
 	public AudioSource sound;
+	public Text scoreText;
+	public Text coinText;
+	public Text scoreEvent;
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -21,7 +25,7 @@ public class MainController : MonoBehaviour {
 
 	private float t;
 	private int start = 0;
-	private int score = 0;
+	private int score;
 	private int coin;
 	private float explosionDelay = 1.5f;
 	private float explosionTime = 100000f;
@@ -37,6 +41,8 @@ public class MainController : MonoBehaviour {
 
 		start = 0;
 		score = 0;
+		coin = 0;
+		scoreEvent.text = "";
 	}
 
 	// Update is called once per frame
@@ -58,6 +64,11 @@ public class MainController : MonoBehaviour {
 			Destroy (gameObject);
 			GenericWindow.manager.Open (2);
 		}
+		scoreText.text = (score+33+(int)(transform.position.x)).ToString ();
+
+		if (score >= 100) {
+			scoreEvent.text = "You reached 100 Score!";
+		}	
 	}
 
 	public void startGame(){
@@ -110,6 +121,7 @@ public class MainController : MonoBehaviour {
 	public void getCoin(){
 		coin += 10;
 		sound.Play ();
+		coinText.text = coin.ToString ();
 	}
 	public void getEnemy(){
 		score += 100;
