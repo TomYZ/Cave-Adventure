@@ -4,11 +4,11 @@ using System.Collections;
 public class Collectable : MonoBehaviour {
 	
 
-
 	// Use this for initialization
 	void OnBecameInvisible() {
 		Destroy (gameObject);
 	}
+
 	void Start () {
 	
 	}

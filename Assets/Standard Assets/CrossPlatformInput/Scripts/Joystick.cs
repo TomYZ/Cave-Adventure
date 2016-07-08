@@ -81,7 +81,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			if (m_UseY)
 			{
 				int delta = (int)(data.position.y - m_StartPos.y);
-				delta = Mathf.Clamp(delta, (-MovementRange/2), MovementRange);
+				delta = Mathf.Clamp(delta, (-MovementRange-200), MovementRange);
 				newPos.y = delta;
 			}
 			transform.position = new Vector3(m_StartPos.x + newPos.x, m_StartPos.y + newPos.y, m_StartPos.z + newPos.z);

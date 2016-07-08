@@ -9,6 +9,7 @@ public class MainController : MonoBehaviour {
 	public float health = 100f;	
 	public bool isboost = false;
 	public float boostDuration = 2.5f;
+	public AudioSource sound;
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -108,6 +109,7 @@ public class MainController : MonoBehaviour {
 	}
 	public void getCoin(){
 		coin += 10;
+		sound.Play ();
 	}
 	public void getEnemy(){
 		score += 100;
