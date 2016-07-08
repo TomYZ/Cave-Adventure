@@ -13,6 +13,7 @@ public class MainController : MonoBehaviour {
 	public AudioSource sound;
 	public Text scoreText;
 	public Text coinText;
+	public Text distanceText;
 	public Text scoreEvent;
 
 	private Rigidbody2D rb2d;
