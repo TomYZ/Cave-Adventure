@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RocketProjectile : AbstractBehavior {
 
-	public float shootDelay = .5f;
+	public float shootDelay = 1f;
 	public GameObject projectilePrefab;
 
 	public static float timeElapsed = 0f;
@@ -20,7 +20,7 @@ public class RocketProjectile : AbstractBehavior {
 			var canFire = inputState.GetButtonValue(inputButtons[0]);
 
 			if(canFire && timeElapsed > shootDelay){
-				CreateProjectile(new Vector3 (transform.position.x + 3f, transform.position.y, transform.position.z));
+				CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				timeElapsed = 0;
 			}
 
@@ -35,7 +35,7 @@ public class RocketProjectile : AbstractBehavior {
 			var canFire = true;
 
 			if(canFire && timeElapsed > shootDelay){
-				CreateProjectile(new Vector3 (transform.position.x + 3f, transform.position.y, transform.position.z));
+				CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				timeElapsed = 0;
 			}
 

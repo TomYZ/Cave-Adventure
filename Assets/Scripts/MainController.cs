@@ -29,6 +29,7 @@ public class MainController : MonoBehaviour {
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
 	private bool healthChange = false;
+	private float healthChangeTime = 1f;
 	private InputState inputState;
 
 	private float t;
@@ -39,7 +40,7 @@ public class MainController : MonoBehaviour {
 	private int killCou;
 	private int rewardCou;
 	private int distance;
-	private float explosionDelay = 1.2f;
+	private float explosionDelay = 1.5f;
 	private float explosionTime = 100000f;
 
 	// Use this for initialization
@@ -69,6 +70,8 @@ public class MainController : MonoBehaviour {
 		float verti = CrossPlatformInputManager.GetAxis ("Vertical");
 		anim.SetFloat ("Health", health);
 		anim.SetFloat ("Speed", verti);
+		anim.SetFloat ("Speedup", speed);
+		anim.SetBool ("HealthChange", healthChange);
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
 	
 		if (Time.time > explosionTime) {
@@ -112,7 +115,11 @@ public class MainController : MonoBehaviour {
 		if (health > 0) {
 			healthBar.transform.localScale = new Vector3 (healthScale.x * health * 0.01f, 1, 1);
 			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
-		} else if (health <= 0) {
+			StartCoroutine("ActivateHealthChange");
+			StartCoroutine("DeActivateHealthChange");
+		} 
+		else if (health <= 0) {
+			healthChange = false;
 			healthBar.transform.localScale = new Vector3 (0, 1, 1);
 			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
 			explosionTime = Time.time + explosionDelay;
@@ -151,5 +158,15 @@ public class MainController : MonoBehaviour {
 		killCou += 1;
 		killCount.text = killCou.ToString ();
 		killText.text = (killCou * 100).ToString ();
+	}
+
+	IEnumerator ActivateHealthChange(){
+		healthChange = true;
+		yield return null;
+	}
+
+	IEnumerator DeActivateHealthChange(){
+		yield return new WaitForSeconds(healthChangeTime);
+		healthChange = false;
 	}
 }

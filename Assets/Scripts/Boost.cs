@@ -5,7 +5,7 @@ public class Boost : MonoBehaviour {
 
 	private Collider2D target;
 	public float boostTime = 2.5f;
-	public float boostSpeed = 20f;
+	public float boostSpeed = 15f;
 	// Use this for initialization
 	void Start () {
 
