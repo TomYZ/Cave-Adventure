@@ -13,14 +13,21 @@ public class MainController : MonoBehaviour {
 	public AudioSource sound;
 	public Text scoreText;
 	public Text coinText;
+	public Text coinCount;
+	public Text coinText2;
+	public Text killCount;
+	public Text killText;
 	public Text distanceText;
+	public Text distanceCount;
+	public Text distanceText2;
+	public Text rewardCount;
+	public Text rewardText2;
 	public Text scoreEvent;
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
-	private bool ShowThisGUI = false;
 	private bool healthChange = false;
 	private InputState inputState;
 
@@ -28,7 +35,11 @@ public class MainController : MonoBehaviour {
 	private int start = 0;
 	private int score;
 	private int coin;
-	private float explosionDelay = 1.5f;
+	private int coinCou;
+	private int killCou;
+	private int rewardCou;
+	private int distance;
+	private float explosionDelay = 1.2f;
 	private float explosionTime = 100000f;
 
 	// Use this for initialization
@@ -43,7 +54,7 @@ public class MainController : MonoBehaviour {
 		start = 0;
 		score = 0;
 		coin = 0;
-		scoreEvent.text = "";
+		//scoreEvent.text = "";
 	}
 
 	// Update is called once per frame
@@ -59,22 +70,22 @@ public class MainController : MonoBehaviour {
 		anim.SetFloat ("Health", health);
 		anim.SetFloat ("Speed", verti);
 		rb2d.velocity = new Vector2(speed, verti * maxspeedUpDown);
-
 	
 		if (Time.time > explosionTime) {
 			Destroy (gameObject);
 			GenericWindow.manager.Open (2);
 		}
-		scoreText.text = (score+33+(int)(transform.position.x)).ToString ();
 
-		if (score >= 100) {
-			scoreEvent.text = "You reached 100 Score!";
-		}	
+		distance = (33 + (int)(transform.position.x));
+		distanceText.text = distance.ToString ();
+
+		//if (distance >= 100) {
+		//	scoreEvent.text = "You reached 100 Score!";
+		//}	
 	}
 
 	public void startGame(){
 		start = 1;
-		ShowThisGUI = true;
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
@@ -105,6 +116,11 @@ public class MainController : MonoBehaviour {
 			healthBar.transform.localScale = new Vector3 (0, 1, 1);
 			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
 			explosionTime = Time.time + explosionDelay;
+
+			distanceCount.text = distance.ToString ();
+			distanceText2.text = distance.ToString ();
+			score = distance + coin + (rewardCou * 50) + (killCou * 100);
+			scoreText.text = score.ToString ();
 		}
 	}
 
@@ -117,27 +133,23 @@ public class MainController : MonoBehaviour {
 	}
 
 	public void getReward(){
-		score += 50;
+		rewardCou += 1;
+		rewardCount.text = rewardCou.ToString ();
+		rewardText2.text = (rewardCou * 50).ToString ();
 	}
+
 	public void getCoin(){
 		coin += 10;
+		coinCou += 1;
 		sound.Play ();
 		coinText.text = coin.ToString ();
+		coinText2.text = coin.ToString ();
+		coinCount.text = coinCou.ToString ();
 	}
+
 	public void getEnemy(){
-		score += 100;
+		killCou += 1;
+		killCount.text = killCou.ToString ();
+		killText.text = (killCou * 100).ToString ();
 	}
-
-	void OnGUI () {
-
-		if (ShowThisGUI) {
-			GUI.color = Color.yellow;
-			GUI.skin.box.fontSize = 70;
-			GUI.skin.box.fontStyle = FontStyle.Bold;
-
-			GUI.Box(new Rect(1830, 10, 250, 100), "" + (int)(score+33+transform.position.x));
-			GUI.Box(new Rect(2285, 10, 250, 100), ""+ coin);
-		}
-	}
-
 }

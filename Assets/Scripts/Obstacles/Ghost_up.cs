@@ -68,7 +68,6 @@ public class Ghost_up : MonoBehaviour {
 		if (target.gameObject.tag == "Rocket") {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getReward();
 			Destroy (gameObject);
-
 		}
 	}
 }
