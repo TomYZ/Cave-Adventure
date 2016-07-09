@@ -23,8 +23,9 @@ public class Boost : MonoBehaviour {
 
 
 			StartCoroutine("ActivateBoost");
-			StartCoroutine("DeActivateBoost");
+			SoundManager2.instance.PlaySound ();
 
+			StartCoroutine("DeActivateBoost");
 
 		}
 	}

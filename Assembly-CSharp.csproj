@@ -93,6 +93,7 @@
      <Compile Include="Assets\Scripts\heathUp.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\SoundManager.cs" />
+     <Compile Include="Assets\SoundManager2.cs" />
      <None Include="Assets\Fonts\LuckiestGuy\LICENSE.txt" />
      <None Include="Assets\Fonts\PressStart2P-Regular\OFL.txt" />
  <Reference Include="UnityEngine.Networking">

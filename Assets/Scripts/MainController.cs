@@ -159,6 +159,7 @@ public class MainController : MonoBehaviour {
 
 	public void getEnemy(){
 		killCou += 1;
+
 		killCount.text = killCou.ToString ();
 		killText.text = (killCou * 100).ToString ();
 	}
