@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+
 
 public class EdgeCoinAppear : MonoBehaviour {
 
 	private float last_position;
-	private float Edge_begin_position;
+	//private float Edge_begin_position;
 	public GameObject CoinPrefab;
+	public GameObject BoostPrefab;
 	private GameObject Edge1;
 	private GameObject Edge2;
 	private GameObject Edge3;
@@ -30,13 +31,12 @@ public class EdgeCoinAppear : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		last_position = -50f;
-		Edge_begin_position = transform.position.x;
+		//Edge_begin_position = transform.position.x;
 		camerasize = Camera.main.orthographicSize;
 		Edge1 = Stage1Edge1;
 		Edge2 = Stage1Edge2;
 		Edge3 = Stage1Edge3;
 		Edge4 = Stage1Edge4;
-
 		edgeNum = 0;
 	}
 
@@ -51,33 +51,91 @@ public class EdgeCoinAppear : MonoBehaviour {
 		}
 		if (transform.position.x - last_position > edgeArea_appear_distance) {
 			last_position = transform.position.x;
-			print(transform.position.x);
-			System.Random ro = new System.Random(); 
-			for(int i=0;i<iUp;i++)
-			{
-				float position = transform.position.x + 20f + i*edge_appear_distance;
-				int iResult;
-				iResult = ro.Next (iUp);
-				edgeNum = (edgeNum + 1) % 4;
+			System.Random ro = new System.Random();
+			int iResult;
+			iResult = ro.Next (iUp);
+			switch (iResult) {
+			case 0:
+				scence_wave (iResult);
+				break;
+			case 1:
+				scence_wave (iResult);
+				break;
+			case 2:
+				scence_boost (transform.position.x + 20f, transform.position.y, transform.position.z);
+				break;
+			case 3:
+				scence_general (iResult);
+				break;
+			}
+
+
+		}
+	}
+
+	public void scence_wave(int iResult){
+		for(int i=0;i<iUp;i++)
+		{
+			float position = transform.position.x + 20f + i*edge_appear_distance;
+			edgeNum = (edgeNum + 1) % 4;
+			switch (edgeNum) {
+			case 0:
+				CreateProjectile (Edge1, new Vector3 (position, transform.position.y + camerasize / 2, transform.position.z));
+				CreateCoinsChainUp(iResult,position, transform.position.y + camerasize / 2, transform.position.z);
+
+				break;
+			case 1:
+				CreateProjectile (Edge2, new Vector3 (position, transform.position.y - camerasize / 2, transform.position.z));
+				CreateCoinsChainDown(iResult+1,position, transform.position.y + camerasize / 2, transform.position.z);
+
+				break;
+			case 2:
+				CreateProjectile (Edge3, new Vector3 (position, transform.position.y + camerasize / 2, transform.position.z));
+				CreateCoinsChainUp(iResult+2,position, transform.position.y + camerasize / 2, transform.position.z);
+
+				break;
+			case 3:
+				CreateProjectile (Edge4, new Vector3 (position, transform.position.y - camerasize / 2, transform.position.z));
+				CreateCoinsChainDown(iResult+3,position, transform.position.y + camerasize / 2, transform.position.z);
+
+				break;
+			}
+		}
+	
+	}
+	public void scence_boost(float x,float y,float z){
+		CreateBoost (new Vector3(x,y,z));
+		for (int i = 2; i<25; i ++) {
+		
+			CreateCoins(new Vector2(x+i,y-0.5f));
+			CreateCoins(new Vector2(x+i,y+0.5f));
+		}
+	}
+	public void scence_general(int iResult){
+		for (int i = 0; i < iUp; i++) {
+			int ro = Random.Range (0, 2);
+			float position = transform.position.x + 20f + i * edge_appear_distance;
+			edgeNum = (edgeNum + 1) % 4;
+			if (ro == 1) {
 				switch (edgeNum) {
 				case 0:
 					CreateProjectile (Edge1, new Vector3 (position, transform.position.y + camerasize / 2, transform.position.z));
-					CreateCoinsChainUp(iResult,position, transform.position.y + camerasize / 2, transform.position.z);
+					CreateCoinsChainUp (iResult, position, transform.position.y + camerasize / 2, transform.position.z);
 
 					break;
 				case 1:
 					CreateProjectile (Edge2, new Vector3 (position, transform.position.y - camerasize / 2, transform.position.z));
-					CreateCoinsChainDown(iResult+1,position, transform.position.y + camerasize / 2, transform.position.z);
+					CreateCoinsChainDown (iResult + 1, position, transform.position.y + camerasize / 2, transform.position.z);
 
 					break;
 				case 2:
 					CreateProjectile (Edge3, new Vector3 (position, transform.position.y + camerasize / 2, transform.position.z));
-					CreateCoinsChainUp(iResult+2,position, transform.position.y + camerasize / 2, transform.position.z);
+					CreateCoinsChainUp (iResult + 2, position, transform.position.y + camerasize / 2, transform.position.z);
 
 					break;
 				case 3:
 					CreateProjectile (Edge4, new Vector3 (position, transform.position.y - camerasize / 2, transform.position.z));
-					CreateCoinsChainDown(iResult+3,position, transform.position.y + camerasize / 2, transform.position.z);
+					CreateCoinsChainDown (iResult + 3, position, transform.position.y + camerasize / 2, transform.position.z);
 
 					break;
 				}
@@ -140,6 +198,13 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public void CreateCoins(Vector2 pos)
 	{
 		var clone = Instantiate(CoinPrefab, pos, Quaternion.identity) as GameObject;
+
+		//clone.transform.localScale = transform.localScale;
+	}
+
+	public void CreateBoost(Vector2 pos)
+	{
+		var clone = Instantiate(BoostPrefab, pos, Quaternion.identity) as GameObject;
 
 		//clone.transform.localScale = transform.localScale;
 	}

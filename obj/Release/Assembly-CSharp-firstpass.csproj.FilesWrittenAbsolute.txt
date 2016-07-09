@@ -1,0 +1,17 @@
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Assembly-CSharp-firstpass.dll.mdb
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Assembly-CSharp-firstpass.dll
+/Users/shiqiwei/Cave-Adventure/obj/Release/Assembly-CSharp-firstpass.dll
+/Users/shiqiwei/Cave-Adventure/obj/Release/Assembly-CSharp-firstpass.dll.mdb
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/UnityEngine.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/UnityEditor.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/UnityEngine.Networking.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/UnityEngine.UI.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Mono.Cecil.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Unity.SerializationLogic.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Unity.DataContract.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/ICSharpCode.NRefactory.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Unity.UNetWeaver.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Unity.UNetWeaver.dll.mdb
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Unity.CecilTools.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Mono.Cecil.Pdb.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Release/Mono.Cecil.Mdb.dll
