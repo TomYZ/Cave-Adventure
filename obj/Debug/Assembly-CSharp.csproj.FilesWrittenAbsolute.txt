@@ -102,3 +102,5 @@
 /Users/zhenyang/Documents/Github/Cave/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/zhenyang/Documents/Github/Cave/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/zhenyang/Documents/Github/Cave/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/shiqiwei/Cave-Adventure/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb

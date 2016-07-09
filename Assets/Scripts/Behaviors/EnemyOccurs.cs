@@ -11,9 +11,9 @@ public class EnemyOccurs : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		flag = 0;
-		distance_slot = 400;
+		distance_slot = 200;
 		stage_slot = 50;
-		last_position = 0f;
+		last_position = -5f;
 		enemy_delay = 10f;
 	}
 	
@@ -26,14 +26,15 @@ public class EnemyOccurs : MonoBehaviour {
 
 			if (position_x > 0 && position_x < distance_slot) {// Stage 1 : Only one kind of enemy will appear
 				if (flag != 1) {
-					randomNum=Random.Range (1, 4);
+					randomNum = Random.Range(1,4);
 				}
 				flag=1;
 
-				int position = position_x % (2 * stage_slot);
-				if (position > stage_slot) {// In the second stage, enemy occurs. (first stage edges occurs)
+				int position = position_x ;
+				if (position > 0) {// In the second stage, enemy occurs. (first stage edges occurs)
 
-
+					//--
+					randomNum = 1;
 					
 					if (randomNum == 1) {// Up ghost
 						CreateEnemyUp ();
@@ -55,8 +56,8 @@ public class EnemyOccurs : MonoBehaviour {
 				}
 				flag=2;
 
-				int position = position_x % (2 * stage_slot);
-				if (position > stage_slot) {// In the second stage, enemy occurs. (first stage edges occurs)
+//				int position = position_x % (2 * stage_slot);
+//				if (position > stage_slot) {// In the second stage, enemy occurs. (first stage edges occurs)
 
 
 					if (randomNum == 1) {// No Up ghost
@@ -71,7 +72,7 @@ public class EnemyOccurs : MonoBehaviour {
 						CreateEnemyUp ();
 						CreateEnemyLeft ();
 					}
-				}
+//				}
 
 
 			}
@@ -82,14 +83,14 @@ public class EnemyOccurs : MonoBehaviour {
 				}
 				flag=3;
 
-				int position = position_x % (2 * stage_slot);
-				if (position > stage_slot) {// In the second stage, enemy occurs. (first stage edges occurs)
+//				int position = position_x % (2 * stage_slot);
+//				if (position > stage_slot) {// In the second stage, enemy occurs. (first stage edges occurs)
 					
 					
 					CreateEnemyUp ();
 					CreateEnemyLeft ();
 					CreateEnemyCannon ();
-				}
+//				}
 
 			}
 

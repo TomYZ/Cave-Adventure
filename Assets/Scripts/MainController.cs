@@ -97,12 +97,15 @@ public class MainController : MonoBehaviour {
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
 				if (col.gameObject.tag == "Edge") {
 					health -= 10;
+					SoundManager.instance.PlaySound ();
 				}
 				if (col.gameObject.tag == "Obstacle") {
 					health -= 20;
+					SoundManager.instance.PlaySound ();
 				}
 				if (col.gameObject.tag == "Bullet") {
 					health -= 20;
+					SoundManager.instance.PlaySound ();
 				}
 
 				UpdateHealthBar ();

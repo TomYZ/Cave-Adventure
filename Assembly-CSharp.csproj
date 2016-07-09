@@ -62,7 +62,7 @@
      <Compile Include="Assets\Scripts\CooltimeAnimation.cs" />
      <Compile Include="Assets\Scripts\CooltimeBlue.cs" />
      <Compile Include="Assets\Scripts\CooltimeFollow.cs" />
-     <Compile Include="Assets\Scripts\EdgeAppear.cs" />
+     <Compile Include="Assets\Scripts\EdgeCoinAppear.cs" />
      <Compile Include="Assets\Scripts\EdgeDisappear.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Explode.cs" />

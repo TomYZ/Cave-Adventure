@@ -2,21 +2,25 @@
 using System.Collections;
 public class SoundManager : MonoBehaviour {
 	public AudioClip ExplosionClip;
-	AudioSource ExplosionSource;
-	public static SoundManager soundManager;
+	AudioSource myAudio;
+	public static SoundManager instance;
 	void Awake()
 	{
-		if (SoundManager.soundManager == null)
+		if (SoundManager.instance == null)
 		{
-			SoundManager.soundManager = this;
+			SoundManager.instance = this;
 		}          
 	}
 	void Start()
 	{
-		ExplosionSource = GetComponent<AudioSource>();
+		myAudio = GetComponent<AudioSource>();
 	}
 	public void PlaySound()
 	{
-		ExplosionSource.PlayOneShot(ExplosionClip);
+		myAudio.PlayOneShot(ExplosionClip);
+	}
+
+	void Update(){
+
 	}
 }
