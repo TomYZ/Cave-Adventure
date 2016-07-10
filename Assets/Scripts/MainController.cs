@@ -22,7 +22,7 @@ public class MainController : MonoBehaviour {
 	public Text distanceText2;
 	public Text rewardCount;
 	public Text rewardText2;
-	public Text scoreEvent;
+
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -55,7 +55,7 @@ public class MainController : MonoBehaviour {
 		start = 0;
 		score = 0;
 		coin = 0;
-		scoreEvent.text = "";
+
 	}
 
 	// Update is called once per frame
@@ -82,9 +82,7 @@ public class MainController : MonoBehaviour {
 		distance = (33 + (int)(transform.position.x));
 		distanceText.text = distance.ToString ();
 
-		if (distance >= 100) {
-			scoreEvent.text = "You reached 100 feets";
-		}	
+
 	}
 
 	public void startGame(){

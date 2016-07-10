@@ -12,7 +12,7 @@ public class Ghost_up : MonoBehaviour {
 
 	private int start;
 	private float start_time;
-	private float moveUporDown=0.2f;
+	private float moveUporDown=0.1f;
 	private float timeToChange=0;
 	// Use this for initialization
 	void OnBecameInvisible() {

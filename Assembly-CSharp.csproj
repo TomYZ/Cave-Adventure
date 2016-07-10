@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Behaviors\RocketProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Shield.cs" />
      <Compile Include="Assets\Scripts\Behaviors\ShieldProjectile.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\challengeDistance.cs" />
      <Compile Include="Assets\Scripts\Behaviors\coinOccurance.cs" />
      <Compile Include="Assets\Scripts\Boost.cs" />
      <Compile Include="Assets\Scripts\Collectable.cs" />
