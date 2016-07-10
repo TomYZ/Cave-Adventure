@@ -147,6 +147,11 @@ public class MainController : MonoBehaviour {
 		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
 	}
 
+	public void getDamage(){
+		health -= 5;
+		UpdateHealthBar ();
+	}
+
 	public void getReward(){
 		rewardCou += 1;
 		rewardCount.text = rewardCou.ToString ();
