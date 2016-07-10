@@ -29,7 +29,7 @@ public class MainController : MonoBehaviour {
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
 	private bool healthChange = false;
-	private float healthChangeTime = 1f;
+	private float healthChangeTime = 1.2f;
 	private InputState inputState;
 
 	private float t;
@@ -95,20 +95,24 @@ public class MainController : MonoBehaviour {
 		if (isboost == false && (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle"|| col.gameObject.tag == "Bullet"))
 		{
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
-				if (col.gameObject.tag == "Edge") {
+				if (!healthChange &&col.gameObject.tag == "Edge") {
+					healthChange = true;
 					health -= 10;
 					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
 				}
 				if (col.gameObject.tag == "Obstacle") {
 					health -= 20;
 					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
 				}
 				if (col.gameObject.tag == "Bullet") {
 					health -= 20;
 					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
 				}
 
-				UpdateHealthBar ();
+
 			}
 		}
 	}
@@ -118,8 +122,9 @@ public class MainController : MonoBehaviour {
 		if (health > 0) {
 			healthBar.transform.localScale = new Vector3 (healthScale.x * health * 0.01f, 1, 1);
 			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
-			StartCoroutine("ActivateHealthChange");
+
 			StartCoroutine("DeActivateHealthChange");
+			StartCoroutine("ActivateHealthChange");
 		} 
 		else if (health <= 0) {
 			healthChange = false;
