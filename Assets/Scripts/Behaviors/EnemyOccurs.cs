@@ -96,14 +96,6 @@ public class EnemyOccurs : MonoBehaviour {
 
 			last_position = transform.position.x;// update last appear position
 		}
-
-
-
-
-
-
-
-
 	}
 
 	public void CreateEnemyUp(){

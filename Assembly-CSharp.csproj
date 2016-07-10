@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PlayVedio.cs" />
-     <Compile Include="Assets\Scripts\AnimatedTexture.cs" />
      <Compile Include="Assets\Scripts\BGControll.cs" />
      <Compile Include="Assets\Scripts\BGEdgecontroll.cs" />
      <Compile Include="Assets\Scripts\Behaviors\AbstractBehavior.cs" />
@@ -58,21 +57,17 @@
      <Compile Include="Assets\Scripts\Behaviors\ShieldProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\challengeDistance.cs" />
      <Compile Include="Assets\Scripts\Behaviors\coinOccurance.cs" />
-     <Compile Include="Assets\Scripts\Boost.cs" />
-     <Compile Include="Assets\Scripts\Collectable.cs" />
-     <Compile Include="Assets\Scripts\CooltimeAnimation.cs" />
-     <Compile Include="Assets\Scripts\CooltimeBlue.cs" />
-     <Compile Include="Assets\Scripts\CooltimeFollow.cs" />
      <Compile Include="Assets\Scripts\EdgeCoinAppear.cs" />
      <Compile Include="Assets\Scripts\EdgeDisappear.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Explode.cs" />
-     <Compile Include="Assets\Scripts\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\MainController.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_Stone.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Bullet.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Cannon.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Explode.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost_left.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Ghost_up.cs" />
@@ -80,6 +75,10 @@
      <Compile Include="Assets\Scripts\Obstacles\ObstacleVelocity.cs" />
      <Compile Include="Assets\Scripts\PlayVedio.cs" />
      <Compile Include="Assets\Scripts\ShieldFollow.cs" />
+     <Compile Include="Assets\Scripts\UI\CooltimeAnimation.cs" />
+     <Compile Include="Assets\Scripts\UI\CooltimeBlue.cs" />
+     <Compile Include="Assets\Scripts\UI\CooltimeFollow.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Windows\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Windows\DestroyOffscreen.cs" />
      <Compile Include="Assets\Scripts\Windows\GameManager.cs" />
@@ -91,7 +90,9 @@
      <Compile Include="Assets\Scripts\Windows\RecycleGameObject.cs" />
      <Compile Include="Assets\Scripts\Windows\StartWindow.cs" />
      <Compile Include="Assets\Scripts\Windows\WindowManager.cs" />
-     <Compile Include="Assets\Scripts\heathUp.cs" />
+     <Compile Include="Assets\Scripts\items\Boost.cs" />
+     <Compile Include="Assets\Scripts\items\Collectable.cs" />
+     <Compile Include="Assets\Scripts\items\heathUp.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\SoundManager.cs" />
      <Compile Include="Assets\SoundManager2.cs" />
