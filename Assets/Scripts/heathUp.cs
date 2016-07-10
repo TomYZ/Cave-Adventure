@@ -18,11 +18,8 @@ public class heathUp : MonoBehaviour {
 		this.target = target;
 		if (target.gameObject.tag == "Player")
 		{
-
 			target.gameObject.GetComponent<MainController>().BostHealthBar();
 			Destroy (gameObject);
-
-
 		}
 	}
 }

@@ -64,11 +64,11 @@ public class Ghost_left : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getEnemy();
 			Destroy (gameObject);
-
 		}
 	}
 }

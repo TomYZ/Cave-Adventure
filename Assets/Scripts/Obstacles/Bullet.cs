@@ -23,14 +23,18 @@ public class Bullet : MonoBehaviour {
 
 	void Update ()
 	{
-		if (transform.position.y >= 10) {
+		if (transform.position.y >= 13) {
 			Destroy (gameObject);
 		}
 	}
-	void OnCollisionEnter2D(Collision2D target){
-		
-			Destroy (gameObject);
 
+	void OnCollisionEnter2D(Collision2D target){
+			Destroy (gameObject);
 	}
 
+	void OnTriggerEnter2D(Collider2D target){
+		if (target.gameObject.tag == "Rocket") {
+			Destroy (gameObject);
+		}
+	}
 }

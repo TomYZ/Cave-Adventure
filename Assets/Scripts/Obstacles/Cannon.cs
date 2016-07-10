@@ -33,10 +33,15 @@ public class Cannon :AbstractBehavior {
 		}
 	}
 
-
-
 	public void CreateProjectile(Vector2 pos){
 		var clone = Instantiate (projectilePrefab, pos, Quaternion.identity) as GameObject;
 		clone.transform.localScale = transform.localScale;
+	}
+
+	void OnTriggerEnter2D(Collider2D target){
+		if (target.gameObject.tag == "Rocket") {
+			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getEnemy();
+			Destroy (gameObject);
+		}
 	}
 }

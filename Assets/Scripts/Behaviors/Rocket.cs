@@ -5,6 +5,7 @@ public class Rocket : MonoBehaviour {
 
 	public Vector2 initialVelocity = new Vector2 (70, 0);
 	public Rigidbody2D body2d;	
+	public CircleCollider2D circleCol;
 
 	private float last_position;
 	private float explosionTime;
@@ -91,6 +92,8 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion(){
 		explosionBool = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
 		body2d.velocity = new Vector2 (1, initialVelocity.y);
 		yield return null;
 	}
@@ -102,6 +105,8 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion2(){
 		explosionGhost1 = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
 		body2d.velocity = new Vector2 (6, initialVelocity.y);
 		yield return null;
 	}
@@ -113,6 +118,8 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion3(){
 		explosionGhost2 = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
 		body2d.velocity = new Vector2 (7, initialVelocity.y);
 		yield return null;
 	}
@@ -124,7 +131,9 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion4(){
 		explosionCannon = true;
-		body2d.velocity = new Vector2 (1, initialVelocity.y);
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
+		body2d.velocity = new Vector2 (2, initialVelocity.y);
 		yield return null;
 	}
 
@@ -135,6 +144,8 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion5(){
 		explosionCannonball = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
 		body2d.velocity = new Vector2 (6, initialVelocity.y);
 		yield return null;
 	}
@@ -146,6 +157,8 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator ActivateExplosion6(){
 		explosionBoss = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
 		body2d.velocity = new Vector2 (6, initialVelocity.y);
 		yield return null;
 	}

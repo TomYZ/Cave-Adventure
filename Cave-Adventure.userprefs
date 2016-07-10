@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Behaviors/Rocket.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Behaviors/challengeDistance.cs" Line="35" Column="18" />
-      <File FileName="Assets/Scripts/Boost.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MainController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Behaviors/Rocket.cs" Line="14" Column="18" />
-      <File FileName="Assets/Scripts/Behaviors/RocketProjectile.cs" Line="11" Column="2" />
-      <File FileName="Assets/Scripts/Obstacles/Ghost_up.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Behaviors/challengeDistance.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainController.cs" Line="106" Column="27" />
+      <File FileName="Assets/Scripts/Behaviors/Rocket.cs" Line="136" Column="35" />
+      <File FileName="Assets/Scripts/Obstacles/Ghost_left.cs" Line="70" Column="87" />
+      <File FileName="Assets/Scripts/Obstacles/Ghost_up.cs" Line="63" Column="13" />
+      <File FileName="Assets/Scripts/Obstacles/Cannon.cs" Line="32" Column="19" />
+      <File FileName="Assets/Scripts/Obstacles/Bullet.cs" Line="25" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

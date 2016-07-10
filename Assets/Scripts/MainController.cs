@@ -90,17 +90,26 @@ public class MainController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		if (isboost == false && (col.gameObject.tag == "Edge" || col.gameObject.tag == "Obstacle"|| col.gameObject.tag == "Bullet"))
+		if (isboost == false && healthChange == false)
 		{
 			if (sheild.GetComponent<Renderer> ().enabled == false) {
-				if (!healthChange &&col.gameObject.tag == "Edge") {
-					healthChange = true;
+				if (col.gameObject.tag == "Edge") {
 					health -= 10;
 					SoundManager.instance.PlaySound ();
 					UpdateHealthBar ();
 				}
-				if (col.gameObject.tag == "Obstacle") {
-					health -= 20;
+				if (col.gameObject.tag == "Ghost1") {
+					health -= 15;
+					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
+				}
+				if (col.gameObject.tag == "Ghost2") {
+					health -= 15;
+					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
+				}
+				if (col.gameObject.tag == "Cannon") {
+					health -= 10;
 					SoundManager.instance.PlaySound ();
 					UpdateHealthBar ();
 				}
@@ -109,8 +118,6 @@ public class MainController : MonoBehaviour {
 					SoundManager.instance.PlaySound ();
 					UpdateHealthBar ();
 				}
-
-
 			}
 		}
 	}
@@ -124,6 +131,7 @@ public class MainController : MonoBehaviour {
 			StartCoroutine("DeActivateHealthChange");
 			StartCoroutine("ActivateHealthChange");
 		} 
+
 		else if (health <= 0) {
 			healthChange = false;
 			healthBar.transform.localScale = new Vector3 (0, 1, 1);
@@ -140,9 +148,16 @@ public class MainController : MonoBehaviour {
 	public void BostHealthBar()
 	{
 		getReward ();
-		health = 100f;
-		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
-		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+		if (health <= 80) {
+			health += 20f;
+			healthBar.transform.localScale = new Vector3 (healthScale.x * health * 0.01f, 1, 1);
+			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
+		}
+		else if (health > 80) {
+			health = 100f;
+			healthBar.transform.localScale = new Vector3 (healthScale.x * health * 0.01f, 1, 1);
+			healthBar.material.color = Color.Lerp (Color.green, Color.red, 1 - health * 0.01f);
+		}
 	}
 
 	public void getDamage(){
@@ -167,7 +182,6 @@ public class MainController : MonoBehaviour {
 
 	public void getEnemy(){
 		killCou += 1;
-
 		killCount.text = killCou.ToString ();
 		killText.text = (killCou * 100).ToString ();
 	}

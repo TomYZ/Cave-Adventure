@@ -41,7 +41,6 @@ public class RocketProjectile : AbstractBehavior {
 			}
 
 			timeElapsed += Time.deltaTime;
-
 		}
 	}
 
