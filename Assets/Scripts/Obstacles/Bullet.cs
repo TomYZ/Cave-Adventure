@@ -35,6 +35,8 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
 			Destroy (gameObject);
+			SoundManager4.instance.PlaySound ();
+
 		}
 	}
 }

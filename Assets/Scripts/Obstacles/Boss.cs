@@ -41,6 +41,8 @@ public class Boss : AbstractBehavior {
 		if (target.gameObject.tag == "Rocket") {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getEnemy();
 			Destroy (gameObject);
+			SoundManager5.instance.PlaySound ();
+
 		}
 	}
 }

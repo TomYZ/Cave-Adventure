@@ -20,6 +20,7 @@ public class heathUp : MonoBehaviour {
 		{
 			target.gameObject.GetComponent<MainController>().BostHealthBar();
 			Destroy (gameObject);
+			SoundManager3.instance.PlaySound ();
 		}
 	}
 }

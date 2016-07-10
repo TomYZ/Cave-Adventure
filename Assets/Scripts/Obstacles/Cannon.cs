@@ -42,6 +42,8 @@ public class Cannon :AbstractBehavior {
 		if (target.gameObject.tag == "Rocket") {
 			GameObject.FindGameObjectWithTag("Player").GetComponent<MainController> ().getEnemy();
 			Destroy (gameObject);
+			SoundManager4.instance.PlaySound ();
+
 		}
 	}
 }
