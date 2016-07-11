@@ -55,7 +55,7 @@ public class Ghost_left : MonoBehaviour {
 		//			transform.Translate (new Vector3 (0, moveUporDown, 0));
 		//			print (moveUporDown);
 		//		}
-		transform.Translate (new Vector3 (-0.1f, 0, 0));
+		transform.Translate (new Vector3 (-0.04f, 0, 0));
 
 	}
 
