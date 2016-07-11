@@ -5,7 +5,8 @@ public class EnemyOccurs : MonoBehaviour {
 
 	private float randomNum,last_position,enemy_delay;
 	private int distance_slot,stage_slot;
-	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab,Warning;
+	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab;
+	public GameObject warning_left,warning_up,warning_cannon;
 	private int flag;
 
 	// Use this for initialization
@@ -104,9 +105,9 @@ public class EnemyOccurs : MonoBehaviour {
 			last_position = transform.position.x;// update last appear position
 		}
 	}
-	public void CreateWarning(int position){
+	public void CreateWarning(GameObject game, int position){
 		Vector2 pos=new Vector3 (transform.position.x + 12f, position, transform.position.z);
-		var clone_left = Instantiate (Warning, pos, Quaternion.identity) as GameObject;
+		var clone_left = Instantiate (game, pos, Quaternion.identity) as GameObject;
 		clone_left.GetComponent<warning_follow> ().position = position;
 	}
 	public void CreateEnemyUp(){
@@ -115,7 +116,7 @@ public class EnemyOccurs : MonoBehaviour {
 			Vector2 pos=new Vector3 (transform.position.x + 20f, 1.5f, transform.position.z);
 			var clone_up = Instantiate (Ghost_up_prefab, pos, Quaternion.identity) as GameObject;
 			print("ghostUp "+transform.position.x);
-			CreateWarning (0);
+			CreateWarning (warning_up,0);
 		}
 
 		//var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;
@@ -131,7 +132,7 @@ public class EnemyOccurs : MonoBehaviour {
 				var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;
 				print("ghostLeft "+transform.position.x);
 				int p = -3 + i * 3;
-				CreateWarning (p);
+				CreateWarning (warning_left,p);
 			}
 		}
 
@@ -145,7 +146,7 @@ public class EnemyOccurs : MonoBehaviour {
 			Vector2 pos = new Vector3 (transform.position.x + 20f, -4f, transform.position.z);
 			var cannon = Instantiate (Cannon_prefab, pos, Quaternion.identity) as GameObject;
 			print("Cannon "+transform.position.x);
-			CreateWarning (-4);
+			CreateWarning (warning_cannon,-4);
 		}
 
 	}
