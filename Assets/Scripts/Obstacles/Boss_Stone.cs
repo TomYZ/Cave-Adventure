@@ -5,8 +5,6 @@ public class Boss_Stone : MonoBehaviour {
 
 	public Vector2 initialVelocity;
 	public Rigidbody2D body2d;	
-	private float last_position;
-
 
 	void Awake()
 	{
@@ -17,15 +15,13 @@ public class Boss_Stone : MonoBehaviour {
 	{
 		var startVelx = initialVelocity.x * transform.localScale.x;
 		body2d.velocity = new Vector2 (startVelx, initialVelocity.y);
-		last_position = transform.position.x;
-		//transform.Rotate (new Vector3 (0, 90, 0), Space.Self);
 	}
 
 	void Update ()
 	{
-	//	if (transform.position.y >= 13) {
-	//		Destroy (gameObject);
-	//	}
+		if (transform.position.x <= -7) {
+			Destroy (gameObject);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D target){

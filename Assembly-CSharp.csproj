@@ -63,6 +63,15 @@
      <Compile Include="Assets\Scripts\Input\InputState.cs" />
      <Compile Include="Assets\Scripts\MainController.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Boss.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\BossEdgeUpRight.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\BossElebar.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\BossElebarDown.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_EdgeDownLeft.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_EdgeDownRight.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_EdgeUpLeft.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_ElebarRed.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_ElebarRedDown.cs" />
+     <Compile Include="Assets\Scripts\Obstacles\Boss_Smoke.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Boss_Stone.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Bullet.cs" />
      <Compile Include="Assets\Scripts\Obstacles\Cannon.cs" />
@@ -76,6 +85,7 @@
      <Compile Include="Assets\Scripts\PlayVedio.cs" />
      <Compile Include="Assets\Scripts\ShieldFollow.cs" />
      <Compile Include="Assets\Scripts\UI\Boss_HealthBar.cs" />
+     <Compile Include="Assets\Scripts\UI\Boss_HealthInner.cs" />
      <Compile Include="Assets\Scripts\UI\CooltimeAnimation.cs" />
      <Compile Include="Assets\Scripts\UI\CooltimeBlue.cs" />
      <Compile Include="Assets\Scripts\UI\CooltimeFollow.cs" />

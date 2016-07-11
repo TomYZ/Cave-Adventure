@@ -53,10 +53,10 @@ public class Shield : AbstractBehavior {
 //		if (target.gameObject.tag != "Player")
 //			Destroy (gameObject);
 	}
-	void OnCollisionEnter2D (Collision2D col){
+/*	void OnCollisionEnter2D (Collision2D col){
 		print ("collide "+col.gameObject.tag);
 		if (col.gameObject.tag == "Bullet"&&gameObject.GetComponent<Renderer> ().enabled == false) {
 			target.GetComponent<MainController> ().getDamage ();
 		}
-	}
+	}*/
 }

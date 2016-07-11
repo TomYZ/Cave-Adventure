@@ -87,6 +87,10 @@ public class Rocket : MonoBehaviour {
 				StartCoroutine ("ActivateExplosion6");
 				StartCoroutine ("DeActivateExplosion6");
 				break;
+			case "BossEdge":
+				StartCoroutine ("ActivateExplosion7");
+				StartCoroutine ("DeActivateExplosion7");
+				break;
 		}
 	}
 
@@ -165,6 +169,19 @@ public class Rocket : MonoBehaviour {
 
 	IEnumerator DeActivateExplosion6(){
 		yield return new WaitForSeconds(explBossTime);
+		Destroy (gameObject);
+	}
+
+	IEnumerator ActivateExplosion7(){
+		explosionBool = true;
+		body2d.isKinematic = true;
+		circleCol.enabled = false;
+		body2d.velocity = new Vector2 (7, initialVelocity.y);
+		yield return null;
+	}
+
+	IEnumerator DeActivateExplosion7(){
+		yield return new WaitForSeconds(explosionTime);
 		Destroy (gameObject);
 	}
 }

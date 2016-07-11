@@ -118,6 +118,16 @@ public class MainController : MonoBehaviour {
 					SoundManager.instance.PlaySound ();
 					UpdateHealthBar ();
 				}
+				if (col.gameObject.tag == "BossEdge") {
+					health -= 10;
+					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
+				}
+				if (col.gameObject.tag == "Smoke") {
+					health -= 10;
+					SoundManager.instance.PlaySound ();
+					UpdateHealthBar ();
+				}
 			}
 		}
 	}
@@ -160,10 +170,10 @@ public class MainController : MonoBehaviour {
 		}
 	}
 
-	public void getDamage(){
+/*	public void getDamage(){
 		health -= 5;
 		UpdateHealthBar ();
-	}
+	}*/
 
 	public void getReward(){
 		rewardCou += 1;

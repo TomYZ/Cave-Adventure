@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyOccurs : MonoBehaviour {
 
 	private float randomNum,last_position,enemy_delay;
-	private int distance_slot,stage_slot;
+	private int distance_slot, stage_slot;
 	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab;
 	public GameObject warning_left,warning_up,warning_cannon;
 	private int flag;
