@@ -146,7 +146,7 @@ public class Rocket : MonoBehaviour {
 		explosionCannonball = true;
 		body2d.isKinematic = true;
 		circleCol.enabled = false;
-		body2d.velocity = new Vector2 (4, initialVelocity.y);
+		body2d.velocity = new Vector2 (6.5f, initialVelocity.y);
 		yield return null;
 	}
 
@@ -159,7 +159,7 @@ public class Rocket : MonoBehaviour {
 		explosionBoss = true;
 		body2d.isKinematic = true;
 		circleCol.enabled = false;
-		body2d.velocity = new Vector2 (3, initialVelocity.y);
+		body2d.velocity = new Vector2 (7, initialVelocity.y);
 		yield return null;
 	}
 

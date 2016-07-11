@@ -1,21 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss : AbstractBehavior {
+public class Boss : MonoBehaviour {
 
 	public float shootDelay,lifetime;
 	public GameObject projectilePrefab;
+	public GameObject target;
 
 	private float timeElapsed = 0f;
+
+	private float moveUporDown=0.01f;
+	private float bossPosY;
 
 	void OnBecameInvisible() {
 		Destroy (gameObject);
 	}
+
 	void Start(){
 		lifetime = Time.time;
+		target = GameObject.FindGameObjectWithTag("Player");
+		bossPosY = transform.position.y;
 	}
+
 	void Update () {
-		if (Time.time - lifetime > 7f) {
+		bossPosY += moveUporDown;
+		transform.position = new Vector3 (target.transform.position.x + 10.7f, bossPosY, transform.position.z);
+
+		if (gameObject.transform.position.y > 1.7f || gameObject.transform.position.y < -1.8f) {
+			moveUporDown *= -1;
+		}
+
+
+		if (Time.time - lifetime > 100f) {
 			Destroy (gameObject);
 
 		}
@@ -24,7 +40,7 @@ public class Boss : AbstractBehavior {
 			var canFire = true;
 
 			if(canFire && (timeElapsed > shootDelay)){
-				CreateProjectile(new Vector3 (transform.position.x-2f, transform.position.y+2f, transform.position.z));
+				CreateProjectile(new Vector3 (transform.position.x-2.5f, transform.position.y+1f, transform.position.z));
 				timeElapsed = 0;
 			}
 

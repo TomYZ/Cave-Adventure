@@ -32,7 +32,7 @@ public class Ghost_up : MonoBehaviour {
 	{
 //		if (start == 0)
 //			return;
-		if (gameObject.transform.position.y>3f||gameObject.transform.position.y<-3f) {
+		if (gameObject.transform.position.y>3.5f||gameObject.transform.position.y<-3.5f) {
 			moveUporDown*=-1;
 			//timeToChange = Time.time;
 		}
