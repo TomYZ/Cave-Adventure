@@ -78,6 +78,9 @@ public class Boss : MonoBehaviour {
 				CreateSmoke(new Vector3 (transform.position.x - 2.4f, transform.position.y + 0.0f, transform.position.z));
 				CreateSmoke(new Vector3 (transform.position.x - 2.8f, transform.position.y - 0.6f, transform.position.z));
 				timeElapsed2 = 0;
+				SoundManager6.instance.PlaySound ();
+
+
 			}
 			timeElapsed2 += Time.deltaTime;
 		}
@@ -139,5 +142,7 @@ public class Boss : MonoBehaviour {
 		int random2 = Random.Range (-2, 2);
 		CreateProjectile(new Vector3 (transform.position.x - 2.8f, transform.position.y + random, transform.position.z));
 		CreateProjectile(new Vector3 (transform.position.x - 1.5f, transform.position.y + random2, transform.position.z));
+		SoundManager4.instance.PlaySound ();
+
 	}
 }
