@@ -27,7 +27,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 	private float camerasize;
 
 	private int edgeNum;
-
+	private float coinshift;
 	// Use this for initialization
 	void Start () {
 		last_position = -50f;
@@ -38,6 +38,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 		Edge3 = Stage1Edge3;
 		Edge4 = Stage1Edge4;
 		edgeNum = 0;
+		coinshift = 0;
 	}
 
 	// Update is called once per frame
@@ -47,6 +48,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 			Edge2 = Stage2Edge2;
 			Edge3 = Stage2Edge3;
 			Edge4 = Stage2Edge4;
+			coinshift = 1.5f;
 
 		}
 		if (transform.position.x - last_position > edgeArea_appear_distance) {
@@ -169,6 +171,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 	}
 	public void CreateCoinsChainDown(int iResult,float x, float y, float z)
 	{
+		x += coinshift;
 		if (iResult != 1)
 			return;
 //		float iy = -5.0f;

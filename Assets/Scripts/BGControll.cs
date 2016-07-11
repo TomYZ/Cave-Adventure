@@ -36,7 +36,7 @@ public class BGControll : MonoBehaviour {
 		if(transform.position.x> wherestarStage2)
 		{
 			GetComponent<Renderer>().material.mainTexture = texture;
-			threshold = 50f;
+			threshold = 65.1f;
 		}
 	}
 }
