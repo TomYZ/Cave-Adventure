@@ -21,7 +21,7 @@ public class EnemyOccurs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print(stage);
+
 		if (transform.position.x > EdgeCoinAppear.WhereBossOccurs && EdgeCoinAppear.Boss_Clone != null) {
 			return;
 		}
@@ -112,10 +112,11 @@ public class EnemyOccurs : MonoBehaviour {
 		}
 	}
 	public void CreateWarning(GameObject game, int position){
-		Vector2 pos=new Vector3 (transform.position.x + 12f, position, transform.position.z);
+		Vector2 pos=new Vector3 (transform.position.x + 13f, position, transform.position.z);
 		var clone_left = Instantiate (game, pos, Quaternion.identity) as GameObject;
 		clone_left.GetComponent<warning_follow> ().position = position;
 	}
+
 	public void CreateEnemyUp(){
 		int random=Random.Range (0, 2);
 		if (random == 1) {
@@ -163,8 +164,6 @@ public class EnemyOccurs : MonoBehaviour {
 			}
 		}
 
-
-
 		//clone.transform.localScale = transform.localScale;
 	}
 	public void CreateEnemyCannon(){
@@ -175,6 +174,5 @@ public class EnemyOccurs : MonoBehaviour {
 			//print("Cannon "+transform.position.x);
 			CreateWarning (warning_cannon,-4);
 		}
-
 	}
 }

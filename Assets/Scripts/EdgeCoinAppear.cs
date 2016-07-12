@@ -60,7 +60,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 		//if (transform.position.x > wherestarStage2) 
 		if (transform.position.x > WhereBossOccurs && Boss_Clone != null) {
 			if(!IsWarningCreated && transform.position.x > WhereBossOccurs + 40){
-				Vector2 pos=new Vector3 (transform.position.x+12f, 0, transform.position.z);
+				Vector2 pos=new Vector3 (transform.position.x+13.5f, 0, transform.position.z);
 				var clone_left = Instantiate (Warning, pos, Quaternion.identity) as GameObject;
 				clone_left.GetComponent<warning_follow> ().position = 10;
 				IsWarningCreated = true;

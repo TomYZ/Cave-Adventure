@@ -2,15 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Behaviors/RocketProjectile.cs">
     <Files>
-      <File FileName="Assets/Scripts/EdgeCoinAppear.cs" Line="71" Column="9" />
       <File FileName="Assets/Scripts/items/Boost.cs" Line="14" Column="18" />
       <File FileName="Assets/Scripts/Obstacles/Boss.cs" Line="107" Column="13" />
-      <File FileName="Assets/Scripts/MainController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Behaviors/challengeDistance.cs" Line="14" Column="32" />
-      <File FileName="Assets/Scripts/Behaviors/RocketProjectile.cs" Line="91" Column="30" />
+      <File FileName="Assets/Scripts/MainController.cs" Line="39" Column="20" />
+      <File FileName="Assets/Scripts/Behaviors/challengeDistance.cs" Line="14" Column="13" />
       <File FileName="Assets/Scripts/Behaviors/Rocket.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Obstacles/Ghost_up.cs" Line="38" Column="5" />
-      <File FileName="Assets/Scripts/Obstacles/Ghost_left.cs" Line="26" Column="13" />
+      <File FileName="Assets/Scripts/Behaviors/EnemyOccurs.cs" Line="19" Column="13" />
+      <File FileName="Assets/Scripts/warning_follow.cs" Line="24" Column="54" />
+      <File FileName="Assets/Scripts/Behaviors/RocketProjectile.cs" Line="25" Column="4" />
+      <File FileName="Assets/Scripts/Behaviors/fireBar.cs" Line="19" Column="3" />
+      <File FileName="Assets/Scripts/EdgeCoinAppear.cs" Line="111" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

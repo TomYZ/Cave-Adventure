@@ -24,17 +24,20 @@ public class RocketProjectile : AbstractBehavior {
 		if (projectilePrefab != null) {
 
 			var canFire = inputState.GetButtonValue(inputButtons[0]);
+			int coin = gameObject.GetComponent<MainController> ().coinCou;
+
+			if (!upgrade && coin >= 200) {
+				upgrade = true;
+				gameObject.GetComponent<MainController> ().updateCoin(1,-200);
+
+				StartCoroutine ("ActivateText");
+				StartCoroutine ("DeActivateText");
+			}
 
 			if(boostOff && canFire && timeElapsed > shootDelay){
-				int coin=gameObject.GetComponent<MainController> ().coinCou;
-				if (!upgrade && coin > 200) {
-					upgrade = true;
-					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
-					weaponUpgrade.text = "Fireball upgraded !!";
-				}
-				if (upgrade && coin > 5) {
+				if (upgrade && coin >= 10) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
-					gameObject.GetComponent<MainController> ().updateCoin (1, -5);
+					gameObject.GetComponent<MainController> ().updateCoin (1, -10);
 				} else {
 					CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				}
@@ -52,16 +55,8 @@ public class RocketProjectile : AbstractBehavior {
 			var canFire = true;
 
 			if(boostOff && canFire && timeElapsed > shootDelay){
-				int coin=gameObject.GetComponent<MainController> ().coinCou;
-				if (!upgrade && coin > 200) {
-					upgrade = true;
-					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
-
-					StartCoroutine ("ActivateText");
-					StartCoroutine ("DeActivateText");
-
-				}
-				if (upgrade && coin > 10) {
+				int coin = gameObject.GetComponent<MainController> ().coinCou;
+				if (upgrade && coin >= 10) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 					gameObject.GetComponent<MainController> ().updateCoin (1, -10);
 				} else {
@@ -84,11 +79,11 @@ public class RocketProjectile : AbstractBehavior {
 
 	public void CreateProjectileUpgrade(Vector3 pos){
 		var clone = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (40, 3);
+		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (43, 3);
 		var clone2 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
 		clone2.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (60, 0);
 		var clone3 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (40, -3);
+		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (43, -3);
 		clone.transform.localScale = transform.localScale;
 		clone2.transform.localScale = transform.localScale;
 		clone3.transform.localScale = transform.localScale;

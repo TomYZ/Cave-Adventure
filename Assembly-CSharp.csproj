@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Behaviors\ShieldProjectile.cs" />
      <Compile Include="Assets\Scripts\Behaviors\challengeDistance.cs" />
      <Compile Include="Assets\Scripts\Behaviors\coinOccurance.cs" />
+     <Compile Include="Assets\Scripts\Behaviors\fireBar.cs" />
      <Compile Include="Assets\Scripts\BossOccurs.cs" />
      <Compile Include="Assets\Scripts\EdgeCoinAppear.cs" />
      <Compile Include="Assets\Scripts\EdgeDisappear.cs" />

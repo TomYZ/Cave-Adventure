@@ -16,12 +16,17 @@ public class warning_follow : MonoBehaviour {
 		//print (position);
 		if (position == 10) {
 			SoundManager10.instance.PlaySound ();
-			transform.position = new Vector3 (target.transform.position.x+5f, 0, transform.position.z);
-		} else {
-			transform.position = new Vector3 (target.transform.position.x+12, position, transform.position.z);
+			transform.position = new Vector3 (target.transform.position.x + 7f, 0, transform.position.z);
+		} else if (position == -4) {
+			transform.position = new Vector3 (target.transform.position.x + 7f, position, transform.position.z);			
+		}
+		else {
+			transform.position = new Vector3 (target.transform.position.x+13f, position, transform.position.z);
 		}
 
-		if (Time.time - time > 0.5f) {
+		if (position == 10 && Time.time - time > 2f) {
+			Destroy (gameObject);
+		} else if (position != 10 && Time.time - time > 0.7f) {
 			Destroy (gameObject);
 		}
 	}
