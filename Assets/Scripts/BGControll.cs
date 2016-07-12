@@ -6,7 +6,6 @@ public class BGControll : MonoBehaviour {
 	//public float wherestarStage2;
 	private float mSpeed=0.6F;
 	public GameObject target;
-	public GameObject boss;
 	private Transform _t;
 	private float threshold = 72.0f;
 	private float translate = 0;
@@ -35,7 +34,7 @@ public class BGControll : MonoBehaviour {
 			translate = 0;
 		}
 		//if(transform.position.x> wherestarStage2)
-		if(boss == null)
+		if(EdgeCoinAppear.Boss_Clone == null)
 		{
 			print("is dostory");
 			GetComponent<Renderer>().material.mainTexture = texture;

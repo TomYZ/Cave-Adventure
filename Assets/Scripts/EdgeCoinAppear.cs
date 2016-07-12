@@ -3,10 +3,13 @@ using System.Collections;
 
 
 public class EdgeCoinAppear : MonoBehaviour {
-	public float WhereBossOccurs;
+	static public float WhereBossOccurs;
+	static public GameObject Boss_Clone;
+
+	public float whereBossOccur;
 	private float last_position;
 	//private float Edge_begin_position;
-	public GameObject Boss;
+	public GameObject BossPrefab;
 	public GameObject CoinPrefab;
 	public GameObject BoostPrefab;
 	private GameObject Edge1;
@@ -26,11 +29,13 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public float edgeArea_appear_distance;
 	public float edge_appear_distance;
 	private float camerasize;
+	private bool IsBossCreated;
 
 	private int edgeNum;
 	private float coinshift;
 	// Use this for initialization
 	void Start () {
+		WhereBossOccurs = whereBossOccur;
 		last_position = -50f;
 		//Edge_begin_position = transform.position.x;
 		camerasize = Camera.main.orthographicSize;
@@ -40,15 +45,21 @@ public class EdgeCoinAppear : MonoBehaviour {
 		Edge4 = Stage1Edge4;
 		edgeNum = 0;
 		coinshift = 0;
+		IsBossCreated = false;
+		Boss_Clone = Instantiate(CoinPrefab, new Vector3(transform.position.x,transform.position.y+20), Quaternion.identity) as GameObject;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//if (transform.position.x > wherestarStage2) 
-		if (transform.position.x > WhereBossOccurs && Boss != null) {
+		if (transform.position.x > WhereBossOccurs && Boss_Clone != null) {
+			if (!IsBossCreated && transform.position.x > WhereBossOccurs + 50) {
+				CreateBoss (new Vector3 (transform.position.x + 20, transform.position.y)); // Create the boss
+				IsBossCreated = true;
+			}
 			return;
 		}
-		if (Boss == null) {
+		if (Boss_Clone == null) {
 			Edge1 = Stage2Edge1;
 			Edge2 = Stage2Edge2;
 			Edge3 = Stage2Edge3;
@@ -213,6 +224,13 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public void CreateBoost(Vector2 pos)
 	{
 		var clone = Instantiate(BoostPrefab, pos, Quaternion.identity) as GameObject;
+
+		//clone.transform.localScale = transform.localScale;
+	}
+
+	public void CreateBoss(Vector2 pos)
+	{
+		Boss_Clone = Instantiate(BossPrefab, pos, Quaternion.identity) as GameObject;
 
 		//clone.transform.localScale = transform.localScale;
 	}

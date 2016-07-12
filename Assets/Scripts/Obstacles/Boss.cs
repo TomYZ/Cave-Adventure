@@ -10,8 +10,7 @@ public class Boss : MonoBehaviour {
 	public Rigidbody2D body2d;	
 	public PolygonCollider2D polyCol;
 	public float health = 100f;	
-	public float WhereBossOccurs;
-
+	//public float WhereBossOccurs;
 
 	private Animator anim;
 	private SpriteRenderer healthBar;
@@ -24,14 +23,10 @@ public class Boss : MonoBehaviour {
 	private bool isSmoke = false;
 	private float timeElapsed2 = 0f;
 
-	public GameObject WarningPrefab;
-	private GameObject clone_left;
-
 	void Awake(){
 		anim = GetComponent<Animator>();
 		body2d = GetComponent<Rigidbody2D> ();
 		target = GameObject.FindGameObjectWithTag("Player");
-
 	}
 
 	void Start(){
@@ -42,15 +37,9 @@ public class Boss : MonoBehaviour {
 	}
 
 	void Update () {
-		if (target.gameObject.transform.position.x +10> WhereBossOccurs) {
-			CreateWarnging ();
-
-		}
-		if (target.gameObject.transform.position.x > WhereBossOccurs) {
-			Destroy (clone_left);
-			
-			SoundManager10.instance.PlaySound ();
-
+//		if (target.gameObject.transform.position.x < WhereBossOccurs) {
+//			return;
+//		}
 			lifeTime = Time.time;
 			anim.SetFloat ("Time", timeElapsed);
 			anim.SetFloat ("LifeTime", lifeTime);
@@ -101,7 +90,7 @@ public class Boss : MonoBehaviour {
 				}
 				timeElapsed2 += Time.deltaTime;
 			}
-		}
+
 	}
 
 	public void CreateProjectile(Vector2 pos){
@@ -116,7 +105,7 @@ public class Boss : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
-			SoundManager8.instance.PlaySound ();
+			SoundManager5.instance.PlaySound ();
 			health -= 10;
 			UpdateHealthBar ();
 		}
@@ -162,10 +151,5 @@ public class Boss : MonoBehaviour {
 		CreateProjectile(new Vector3 (transform.position.x - 1.5f, transform.position.y + random2, transform.position.z));
 		SoundManager4.instance.PlaySound ();
 
-	}
-	private void CreateWarnging(){
-		Vector2 pos=new Vector3 (transform.position.x + 5f, 0, transform.position.z);
-		clone_left = Instantiate (WarningPrefab, pos, Quaternion.identity) as GameObject;
-		clone_left.GetComponent<warning_follow> ().position = 10;
 	}
 }
