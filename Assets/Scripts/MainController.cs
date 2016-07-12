@@ -170,10 +170,10 @@ public class MainController : MonoBehaviour {
 		}
 	}
 
-/*	public void getDamage(){
-		health -= 5;
+	public void getDamage(){
+		health -= 20;
 		UpdateHealthBar ();
-	}*/
+	}
 
 	public void getReward(){
 		rewardCou += 1;

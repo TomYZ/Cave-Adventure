@@ -12,6 +12,7 @@ public class Boss : MonoBehaviour {
 	public float health = 100f;	
 	public float WhereBossOccurs;
 
+
 	private Animator anim;
 	private SpriteRenderer healthBar;
 	private Vector3 healthScale;
@@ -22,6 +23,9 @@ public class Boss : MonoBehaviour {
 	private bool isAttack = false;
 	private bool isSmoke = false;
 	private float timeElapsed2 = 0f;
+
+	public GameObject WarningPrefab;
+	private GameObject clone_left;
 
 	void Awake(){
 		anim = GetComponent<Animator>();
@@ -38,7 +42,13 @@ public class Boss : MonoBehaviour {
 	}
 
 	void Update () {
+		if (target.gameObject.transform.position.x +10> WhereBossOccurs) {
+			CreateWarnging ();
+
+		}
 		if (target.gameObject.transform.position.x > WhereBossOccurs) {
+			Destroy (clone_left);
+			
 			SoundManager10.instance.PlaySound ();
 
 			lifeTime = Time.time;
@@ -152,5 +162,10 @@ public class Boss : MonoBehaviour {
 		CreateProjectile(new Vector3 (transform.position.x - 1.5f, transform.position.y + random2, transform.position.z));
 		SoundManager4.instance.PlaySound ();
 
+	}
+	private void CreateWarnging(){
+		Vector2 pos=new Vector3 (transform.position.x + 5f, 0, transform.position.z);
+		clone_left = Instantiate (WarningPrefab, pos, Quaternion.identity) as GameObject;
+		clone_left.GetComponent<warning_follow> ().position = 10;
 	}
 }

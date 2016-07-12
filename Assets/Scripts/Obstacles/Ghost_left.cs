@@ -4,7 +4,7 @@ using System.Collections;
 public class Ghost_left : MonoBehaviour {
 
 	public Transform target;
-	public float speed = 3f;
+	public float speed = -0.04f;
 	public float attack1Range = 3f;
 	public int attack1Damage = 10;
 	public float timeBetweenAttacks;
@@ -55,7 +55,7 @@ public class Ghost_left : MonoBehaviour {
 		//			transform.Translate (new Vector3 (0, moveUporDown, 0));
 		//			print (moveUporDown);
 		//		}
-		transform.Translate (new Vector3 (-0.04f, 0, 0));
+		transform.Translate (new Vector3 (speed, 0, 0));
 
 	}
 

@@ -14,7 +14,12 @@ public class warning_follow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//print (position);
-		transform.position = new Vector3 (target.transform.position.x+12, position, transform.position.z);
+		if (position == 10) {
+			transform.position = new Vector3 (target.transform.position.x+5f, 0, transform.position.z);
+		} else {
+			transform.position = new Vector3 (target.transform.position.x+12, position, transform.position.z);
+		}
+
 		if (Time.time - time > 0.5f) {
 			Destroy (gameObject);
 		}

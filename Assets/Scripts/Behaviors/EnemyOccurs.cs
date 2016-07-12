@@ -10,6 +10,7 @@ public class EnemyOccurs : MonoBehaviour {
 	private int flag;
 	public float WhereBossOccurs;
 	public GameObject Boss;
+	private int stage=1;
 	// Use this for initialization
 	void Start () {
 		flag = 0;
@@ -21,9 +22,14 @@ public class EnemyOccurs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 
 		if (transform.position.x > WhereBossOccurs && Boss != null) {
 			return;
+		}
+
+		if (Boss == null&&transform.position.x > WhereBossOccurs) {
+			stage = 2;
 		}
 
 		int position_x = ((int)transform.position.x)%(3*distance_slot);
@@ -121,6 +127,9 @@ public class EnemyOccurs : MonoBehaviour {
 		if (random == 1) {
 			Vector2 pos=new Vector3 (transform.position.x + 20f, 1.5f, transform.position.z);
 			var clone_up = Instantiate (Ghost_up_prefab, pos, Quaternion.identity) as GameObject;
+//			if (stage == 2) {
+//				clone_up.gameObject.GetComponent<Ghost_up> ().moveUporDown = 0.2f;
+//			}
 			print("ghostUp "+transform.position.x);
 			CreateWarning (warning_up,0);
 		}
