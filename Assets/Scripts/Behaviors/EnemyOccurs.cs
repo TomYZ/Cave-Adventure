@@ -8,7 +8,8 @@ public class EnemyOccurs : MonoBehaviour {
 	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab;
 	public GameObject warning_left,warning_up,warning_cannon;
 	private int flag;
-
+	public float WhereBossOccurs;
+	public GameObject Boss;
 	// Use this for initialization
 	void Start () {
 		flag = 0;
@@ -20,6 +21,11 @@ public class EnemyOccurs : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (transform.position.x > WhereBossOccurs && Boss != null) {
+			return;
+		}
+
 		int position_x = ((int)transform.position.x)%(3*distance_slot);
 
 		if (transform.position.x - last_position > enemy_delay) {// every 10 distance, enemy will appear
