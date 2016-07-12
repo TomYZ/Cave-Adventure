@@ -103,7 +103,7 @@ public class Boss : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
-			SoundManager5.instance.PlaySound ();
+			SoundManager8.instance.PlaySound ();
 			health -= 10;
 			UpdateHealthBar ();
 		}
