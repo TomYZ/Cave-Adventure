@@ -11,7 +11,7 @@ public class challengeDistance : MonoBehaviour {
 	private int dist = 0;
 	private int temp = 0;
 	void Start () {
-        if (!PlayerPrefs.HasKey("travel"))
+        if (PlayerPrefs.HasKey("travel"))
         {
             PlayerPrefs.SetInt("travel", 100);
             PlayerPrefs.Save();
@@ -31,6 +31,7 @@ public class challengeDistance : MonoBehaviour {
         {
 			
 			temp = dist;
+			gameObject.GetComponent<MainController> ().coinCou = gameObject.GetComponent<MainController> ().coinCou + challenge;
             challenge = challenge + 100;
 			scoreEvent.text = "New Challenge, reach " +challenge+ " feets";
             PlayerPrefs.SetInt("travel", challenge);

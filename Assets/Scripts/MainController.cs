@@ -36,7 +36,7 @@ public class MainController : MonoBehaviour {
 	private int start = 0;
 	private int score;
 	private int coin;
-	private int coinCou;
+	public int coinCou;
 	private int killCou;
 	private int rewardCou;
 	private int distance;
