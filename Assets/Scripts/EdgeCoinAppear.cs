@@ -3,9 +3,10 @@ using System.Collections;
 
 
 public class EdgeCoinAppear : MonoBehaviour {
-
+	public float WhereBossOccurs;
 	private float last_position;
 	//private float Edge_begin_position;
+	public GameObject Boss;
 	public GameObject CoinPrefab;
 	public GameObject BoostPrefab;
 	private GameObject Edge1;
@@ -20,7 +21,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public GameObject Stage2Edge2;
 	public GameObject Stage2Edge3;
 	public GameObject Stage2Edge4;
-	public float wherestarStage2;
+	//public float wherestarStage2;
 	public int iUp;
 	public float edgeArea_appear_distance;
 	public float edge_appear_distance;
@@ -43,7 +44,11 @@ public class EdgeCoinAppear : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x > wherestarStage2) {
+		//if (transform.position.x > wherestarStage2) 
+		if (transform.position.x > WhereBossOccurs && Boss != null) {
+			return;
+		}
+		if (Boss == null) {
 			Edge1 = Stage2Edge1;
 			Edge2 = Stage2Edge2;
 			Edge3 = Stage2Edge3;

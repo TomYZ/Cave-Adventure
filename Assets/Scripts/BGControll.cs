@@ -3,9 +3,10 @@ using System.Collections;
 
 public class BGControll : MonoBehaviour {
 	public Texture texture;
-	public float wherestarStage2;
+	//public float wherestarStage2;
 	private float mSpeed=0.6F;
 	public GameObject target;
+	public GameObject boss;
 	private Transform _t;
 	private float threshold = 72.0f;
 	private float translate = 0;
@@ -33,8 +34,10 @@ public class BGControll : MonoBehaviour {
 			last_position = _t.position.x;
 			translate = 0;
 		}
-		if(transform.position.x> wherestarStage2)
+		//if(transform.position.x> wherestarStage2)
+		if(boss == null)
 		{
+			print("is dostory");
 			GetComponent<Renderer>().material.mainTexture = texture;
 			threshold = 65.1f;
 		}
