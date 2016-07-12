@@ -4,12 +4,12 @@ using System.Collections;
 
 public class challengeDistance : MonoBehaviour {
 
-    // Use this for initialization
-    private int challenge;
-   
 	public Text scoreEvent;
+
 	private int dist = 0;
 	private int temp = 0;
+	private int challenge;
+
 	void Start () {
         if (PlayerPrefs.HasKey("travel"))
         {
@@ -29,16 +29,18 @@ public class challengeDistance : MonoBehaviour {
 
         if (dist > challenge)
         {
-			
 			temp = dist;
-			gameObject.GetComponent<MainController> ().coinCou = gameObject.GetComponent<MainController> ().coinCou + challenge;
-            challenge = challenge + 100;
+			gameObject.GetComponent<MainController> ().updateCoin(challenge/10,challenge/10);
+			//gameObject.GetComponent<MainController> ().coinText.text = gameObject.GetComponent<MainController> ().coinCou.ToString();
+
+			challenge = challenge + 100;
 			scoreEvent.text = "New Challenge, reach " +challenge+ " feets";
-            PlayerPrefs.SetInt("travel", challenge);
-            PlayerPrefs.Save();
-			//print ("temp"+ temp);
-            
+			PlayerPrefs.SetInt("travel", challenge);
+			PlayerPrefs.Save();
+
+			//print ("temp"+ temp);   
         }
+
 		if (dist > (temp + 15)) {
 			scoreEvent.text = "";
 		}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RocketProjectile : AbstractBehavior {
@@ -7,6 +8,7 @@ public class RocketProjectile : AbstractBehavior {
 	public GameObject projectilePrefab;
 	public bool boostOff=true;
 	public bool upgrade=false;
+	public Text weaponUpgrade;
 
 	public static float timeElapsed = 0f;
 
@@ -25,6 +27,8 @@ public class RocketProjectile : AbstractBehavior {
 				int coin=gameObject.GetComponent<MainController> ().coinCou;
 				if (!upgrade && coin > 200) {
 					upgrade = true;
+					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
+					weaponUpgrade.text = "Fireball upgraded!";
 				}
 				if (upgrade && coin > 5) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
@@ -49,6 +53,8 @@ public class RocketProjectile : AbstractBehavior {
 				int coin=gameObject.GetComponent<MainController> ().coinCou;
 				if (!upgrade && coin > 200) {
 					upgrade = true;
+					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
+					weaponUpgrade.text = "Fireball upgraded!";
 				}
 				if (upgrade && coin > 5) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));

@@ -185,9 +185,18 @@ public class MainController : MonoBehaviour {
 		coin += 10;
 		coinCou += 1;
 		sound.Play ();
-		coinText.text = coin.ToString ();
+		coinText.text = coinCou.ToString ();
 		coinText2.text = coin.ToString ();
-		coinCount.text = coinCou.ToString ();
+		coinCount.text = (coin/10).ToString ();
+	}
+
+	public void updateCoin(int val1,int val2){
+		coin += 10*val1;
+		coinCou += val2;
+		sound.Play ();
+		coinText.text = coinCou.ToString ();
+		coinText2.text = coin.ToString ();
+		coinCount.text = (coin/10).ToString ();
 	}
 
 	public void getEnemy(){

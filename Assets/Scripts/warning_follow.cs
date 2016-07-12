@@ -15,6 +15,7 @@ public class warning_follow : MonoBehaviour {
 	void Update () {
 		//print (position);
 		if (position == 10) {
+			SoundManager10.instance.PlaySound ();
 			transform.position = new Vector3 (target.transform.position.x+5f, 0, transform.position.z);
 		} else {
 			transform.position = new Vector3 (target.transform.position.x+12, position, transform.position.z);
