@@ -5,9 +5,10 @@ public class EnemyOccurs : MonoBehaviour {
 
 	private float randomNum,last_position,enemy_delay;
 	private int distance_slot, stage_slot;
-	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab;
+	public GameObject Ghost_up_prefab,Ghost_left_prefab,Cannon_prefab,Ghost_up_prefab2,Ghost_left_prefab2;
 	public GameObject warning_left,warning_up,warning_cannon;
 	private int flag;
+	public int stage;
 	// Use this for initialization
 	void Start () {
 		flag = 0;
@@ -15,11 +16,12 @@ public class EnemyOccurs : MonoBehaviour {
 		stage_slot = 50;
 		last_position = -5f;
 		enemy_delay = 10f;
+		stage = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		print(stage);
 		if (transform.position.x > EdgeCoinAppear.WhereBossOccurs && EdgeCoinAppear.Boss_Clone != null) {
 			return;
 		}
@@ -117,10 +119,20 @@ public class EnemyOccurs : MonoBehaviour {
 	public void CreateEnemyUp(){
 		int random=Random.Range (0, 2);
 		if (random == 1) {
-			Vector2 pos=new Vector3 (transform.position.x + 20f, 1.5f, transform.position.z);
-			var clone_up = Instantiate (Ghost_up_prefab, pos, Quaternion.identity) as GameObject;
-			print("ghostUp "+transform.position.x);
-			CreateWarning (warning_up,0);
+			if (stage == 2) {
+				Vector2 pos = new Vector3 (transform.position.x + 20f, 1.5f, transform.position.z);
+				var clone_up = Instantiate (Ghost_up_prefab2, pos, Quaternion.identity) as GameObject;
+				clone_up.GetComponent<Ghost_up> ().stage = stage;
+				print ("ghostUp " + transform.position.x);
+				CreateWarning (warning_up, 0);
+			} else {
+				Vector2 pos=new Vector3 (transform.position.x + 20f, 1.5f, transform.position.z);
+				var clone_up = Instantiate (Ghost_up_prefab, pos, Quaternion.identity) as GameObject;
+				clone_up.GetComponent<Ghost_up> ().stage = stage;
+				//print("ghostUp "+transform.position.x);
+				CreateWarning (warning_up,0);
+			}
+
 		}
 
 		//var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;
@@ -132,11 +144,22 @@ public class EnemyOccurs : MonoBehaviour {
 		for (int i = 0; i < 3; i++) {
 			int random=Random.Range (0, 2);
 			if (random == 1) {
-				Vector2 pos=new Vector3 (transform.position.x + 20f, -3 + i * 3, transform.position.z);
-				var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;
-				print("ghostLeft "+transform.position.x);
-				int p = -3 + i * 3;
-				CreateWarning (warning_left,p);
+				if (stage == 2) {
+					Vector2 pos = new Vector3 (transform.position.x + 20f, -3 + i * 3, transform.position.z);
+					var clone_left = Instantiate (Ghost_left_prefab2, pos, Quaternion.identity) as GameObject;
+					clone_left.GetComponent<Ghost_left> ().stage = stage;
+					print ("ghostLeft " + transform.position.x);
+					int p = -3 + i * 3;
+					CreateWarning (warning_left, p);
+				} else {
+					Vector2 pos=new Vector3 (transform.position.x + 20f, -3 + i * 3, transform.position.z);
+					var clone_left = Instantiate (Ghost_left_prefab, pos, Quaternion.identity) as GameObject;
+					clone_left.GetComponent<Ghost_left> ().stage = stage;
+					//print("ghostLeft "+transform.position.x);
+					int p = -3 + i * 3;
+					CreateWarning (warning_left,p);
+				}
+
 			}
 		}
 
@@ -149,7 +172,7 @@ public class EnemyOccurs : MonoBehaviour {
 		if (random == 1) {
 			Vector2 pos = new Vector3 (transform.position.x + 20f, -4f, transform.position.z);
 			var cannon = Instantiate (Cannon_prefab, pos, Quaternion.identity) as GameObject;
-			print("Cannon "+transform.position.x);
+			//print("Cannon "+transform.position.x);
 			CreateWarning (warning_cannon,-4);
 		}
 

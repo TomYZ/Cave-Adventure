@@ -10,7 +10,6 @@ public class Boss : MonoBehaviour {
 	public Rigidbody2D body2d;	
 	public PolygonCollider2D polyCol;
 	public float health = 100f;	
-	//public float WhereBossOccurs;
 
 	private Animator anim;
 	private SpriteRenderer healthBar;
@@ -22,6 +21,7 @@ public class Boss : MonoBehaviour {
 	private bool isAttack = false;
 	private bool isSmoke = false;
 	private float timeElapsed2 = 0f;
+
 
 	void Awake(){
 
@@ -38,60 +38,56 @@ public class Boss : MonoBehaviour {
 	}
 
 	void Update () {
-//		if (target.gameObject.transform.position.x < WhereBossOccurs) {
-//			return;
-//		}
-			lifeTime = Time.time;
-			anim.SetFloat ("Time", timeElapsed);
-			anim.SetFloat ("LifeTime", lifeTime);
-			anim.SetFloat ("Health", health);
+		lifeTime += Time.deltaTime;
+		anim.SetFloat ("Time", timeElapsed);
+		anim.SetFloat ("LifeTime", lifeTime);
+		anim.SetFloat ("Health", health);
 
-			if (polyCol.enabled == false && lifeTime > 2.5) {
-				polyCol.enabled = true;
-			}
-			if (isSmoke == false && lifeTime > 4.9) {
-				isSmoke = true;
-			}
-			if (isAttack == false && lifeTime > 12) {
-				isAttack = true;
-			}
+		if (polyCol.enabled == false && lifeTime > 2.5) {
+			polyCol.enabled = true;
+		}
+		if (isSmoke == false && lifeTime > 4.9) {
+			isSmoke = true;
+		}
+		if (isAttack == false && lifeTime > 12) {
+			isAttack = true;
+		}
 			
-			bossPosY += moveUporDown;
+		bossPosY += moveUporDown;
 
-			transform.position = new Vector3 (target.transform.position.x + 11.2f, bossPosY, 0);
+		transform.position = new Vector3 (target.transform.position.x + 11.2f, bossPosY, 0);
 		
-			if (gameObject.transform.position.y > 1.5f || gameObject.transform.position.y < -1.7f) {
-				moveUporDown *= -1;
-			}
+		if (gameObject.transform.position.y > 1.5f || gameObject.transform.position.y < -1.7f) {
+			moveUporDown *= -1;
+		}
 
 
-			if (projectilePrefab != null) {
+		if (projectilePrefab != null) {
 
-				if (isAttack && (timeElapsed > shootDelay)) {
+			if (isAttack && (timeElapsed > shootDelay)) {
 
-					StartCoroutine ("ActivateAttack");
-					StartCoroutine ("DeActivateAttack");
+				StartCoroutine ("ActivateAttack");
+				StartCoroutine ("DeActivateAttack");
 		
-					timeElapsed = 0;
-				}
-				timeElapsed += Time.deltaTime;
+				timeElapsed = 0;
 			}
+			timeElapsed += Time.deltaTime;
+		}
 
-			if (smokePrefab != null) {
+		if (smokePrefab != null) {
 
-				if (isSmoke && (timeElapsed2 > smokeDelay)) {
-					CreateSmoke (new Vector3 (transform.position.x - 2.2f, transform.position.y + 1.2f, transform.position.z));
-					CreateSmoke (new Vector3 (transform.position.x - 2.6f, transform.position.y + 0.6f, transform.position.z));
-					CreateSmoke (new Vector3 (transform.position.x - 2.4f, transform.position.y + 0.0f, transform.position.z));
-					CreateSmoke (new Vector3 (transform.position.x - 2.8f, transform.position.y - 0.6f, transform.position.z));
-					timeElapsed2 = 0;
-					SoundManager6.instance.PlaySound ();
-
-
-				}
-				timeElapsed2 += Time.deltaTime;
+			if (isSmoke && (timeElapsed2 > smokeDelay)) {
+				CreateSmoke (new Vector3 (transform.position.x - 2.2f, transform.position.y + 1.2f, transform.position.z));
+				CreateSmoke (new Vector3 (transform.position.x - 2.6f, transform.position.y + 0.6f, transform.position.z));
+				CreateSmoke (new Vector3 (transform.position.x - 2.4f, transform.position.y + 0.0f, transform.position.z));
+				CreateSmoke (new Vector3 (transform.position.x - 2.8f, transform.position.y - 0.6f, transform.position.z));
+				timeElapsed2 = 0;
+				SoundManager6.instance.PlaySound ();
+			
+			
 			}
-
+			timeElapsed2 += Time.deltaTime;
+		}
 	}
 
 	public void CreateProjectile(Vector2 pos){
@@ -107,7 +103,7 @@ public class Boss : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D target){
 		if (target.gameObject.tag == "Rocket") {
 			SoundManager5.instance.PlaySound ();
-			health -= 10;
+			health -= 4;
 			UpdateHealthBar ();
 		}
 	}

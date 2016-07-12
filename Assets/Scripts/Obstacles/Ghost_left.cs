@@ -4,7 +4,7 @@ using System.Collections;
 public class Ghost_left : MonoBehaviour {
 
 	public Transform target;
-	public float speed = -0.1f;
+	public float speed;
 	public float attack1Range = 3f;
 	public int attack1Damage = 10;
 	public float timeBetweenAttacks;
@@ -13,7 +13,7 @@ public class Ghost_left : MonoBehaviour {
 	private float start_time;
 	private float moveUporDown=0.2f;
 	private float timeToChange=0;
-	public int stage = 1;
+	public int stage;
 	// Use this for initialization
 	void OnBecameInvisible() {
 		Destroy (gameObject);
@@ -23,7 +23,7 @@ public class Ghost_left : MonoBehaviour {
 		start = 0;
 		timeToChange = Time.time;
 		start_time = Time.time;
-
+		stage = 1;
 	}
 	public void startGame(){
 		start = 1;
@@ -34,9 +34,9 @@ public class Ghost_left : MonoBehaviour {
 		
 		//		if (start == 0)
 		//			return;
-		if (stage == 2) {
-			speed = -0.2f;
-		}
+//		if (stage == 2) {
+//			speed = -0.1f;
+//		}
 		if (gameObject.transform.position.y>3f||gameObject.transform.position.y<-3f) {
 			moveUporDown*=-1;
 			//timeToChange = Time.time;

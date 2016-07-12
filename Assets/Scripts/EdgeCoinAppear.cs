@@ -34,7 +34,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public float edgeArea_appear_distance;
 	public float edge_appear_distance;
 	private float camerasize;
-	private bool IsBossCreated;
+	public bool IsBossCreated;
 	private bool IsWarningCreated;
 	private int edgeNum;
 	private float coinshift;
@@ -66,10 +66,9 @@ public class EdgeCoinAppear : MonoBehaviour {
 				IsWarningCreated = true;
 			}
 			if (!IsBossCreated && transform.position.x > WhereBossOccurs + 50) {
-				CreateBoss (new Vector3 (transform.position.x + 20, transform.position.y)); // Create the boss
+				CreateBoss (new Vector3 (transform.position.x, transform.position.y)); // Create the boss
 				IsBossCreated = true;
-				g_up.gameObject.GetComponent<Ghost_up> ().stage = 2;
-				g_left.gameObject.GetComponent<Ghost_left> ().stage = 2;
+				GameObject.FindGameObjectWithTag("Player").GetComponent<EnemyOccurs> ().stage = 2;
 
 			}
 			return;

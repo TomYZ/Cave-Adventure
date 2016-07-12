@@ -12,6 +12,8 @@ public class RocketProjectile : AbstractBehavior {
 
 	public static float timeElapsed = 0f;
 
+	private float textAppearTime = 3f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -54,11 +56,14 @@ public class RocketProjectile : AbstractBehavior {
 				if (!upgrade && coin > 200) {
 					upgrade = true;
 					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
-					weaponUpgrade.text = "Fireball upgraded !!";
+
+					StartCoroutine ("ActivateText");
+					StartCoroutine ("DeActivateText");
+
 				}
-				if (upgrade && coin > 5) {
+				if (upgrade && coin > 10) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
-					gameObject.GetComponent<MainController> ().updateCoin (1, -5);
+					gameObject.GetComponent<MainController> ().updateCoin (1, -10);
 				} else {
 					CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				}	
@@ -79,17 +84,26 @@ public class RocketProjectile : AbstractBehavior {
 
 	public void CreateProjectileUpgrade(Vector3 pos){
 		var clone = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (58, 8);
+		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (40, 3);
 		var clone2 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
 		clone2.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (60, 0);
 		var clone3 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (58, -8);
+		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (40, -3);
 		clone.transform.localScale = transform.localScale;
 		clone2.transform.localScale = transform.localScale;
 		clone3.transform.localScale = transform.localScale;
 		//clone.gameObject.GetComponent<Rocket>().initialVelocity
 	}
 
+	IEnumerator ActivateText(){
+		weaponUpgrade.text = "Fireball upgraded !!";
+		yield return null;
+	}
+
+	IEnumerator DeActivateText(){
+		yield return new WaitForSeconds(textAppearTime);
+		weaponUpgrade.text = " ";
+	}
 
 }
 
