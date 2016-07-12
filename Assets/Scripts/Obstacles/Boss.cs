@@ -27,6 +27,7 @@ public class Boss : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		body2d = GetComponent<Rigidbody2D> ();
 		target = GameObject.FindGameObjectWithTag("Player");
+
 	}
 
 	void Start(){
@@ -38,6 +39,8 @@ public class Boss : MonoBehaviour {
 
 	void Update () {
 		if (target.gameObject.transform.position.x > WhereBossOccurs) {
+			SoundManager10.instance.PlaySound ();
+
 			lifeTime = Time.time;
 			anim.SetFloat ("Time", timeElapsed);
 			anim.SetFloat ("LifeTime", lifeTime);

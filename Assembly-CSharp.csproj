@@ -108,6 +108,7 @@
      <Compile Include="Assets\Scripts\warning_follow.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\SoundManager.cs" />
+     <Compile Include="Assets\SoundManager10.cs" />
      <Compile Include="Assets\SoundManager2.cs" />
      <Compile Include="Assets\SoundManager3.cs" />
      <Compile Include="Assets\SoundManager4.cs" />
