@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Rocket : MonoBehaviour {
 
-	public Vector2 initialVelocity = new Vector2 (70, 0);
+	public Vector2 initialVelocity = new Vector2 (60, 0);
 	public Rigidbody2D body2d;	
 	public CircleCollider2D circleCol;
 

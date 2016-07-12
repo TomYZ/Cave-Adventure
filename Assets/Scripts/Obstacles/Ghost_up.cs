@@ -12,8 +12,10 @@ public class Ghost_up : MonoBehaviour {
 
 	private int start;
 	private float start_time;
-	public float moveUporDown;
+	public float moveUporDown=0.1f;
 	private float timeToChange=0;
+	public int stage;
+	private bool changed=false;
 	// Use this for initialization
 	void OnBecameInvisible() {
 		Destroy (gameObject);
@@ -23,7 +25,6 @@ public class Ghost_up : MonoBehaviour {
 		start = 0;
 		timeToChange = Time.time;
 		start_time = Time.time;
-		moveUporDown = 0.1f;
 	}
 	public void startGame(){
 		start = 1;
@@ -33,6 +34,10 @@ public class Ghost_up : MonoBehaviour {
 	{
 //		if (start == 0)
 //			return;
+		if (stage == 2&&changed==false) {
+			moveUporDown=0.2f;
+			changed = true;
+		}
 		if (gameObject.transform.position.y>3.5f||gameObject.transform.position.y<-3.5f) {
 			moveUporDown*=-1;
 			//timeToChange = Time.time;

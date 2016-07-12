@@ -24,13 +24,18 @@ public class EdgeCoinAppear : MonoBehaviour {
 	public GameObject Stage2Edge2;
 	public GameObject Stage2Edge3;
 	public GameObject Stage2Edge4;
+	public GameObject g_left;
+	public GameObject g_up;
+
+	public GameObject Warning;
+
 	//public float wherestarStage2;
 	public int iUp;
 	public float edgeArea_appear_distance;
 	public float edge_appear_distance;
 	private float camerasize;
 	private bool IsBossCreated;
-
+	private bool IsWarningCreated;
 	private int edgeNum;
 	private float coinshift;
 	// Use this for initialization
@@ -46,6 +51,7 @@ public class EdgeCoinAppear : MonoBehaviour {
 		edgeNum = 0;
 		coinshift = 0;
 		IsBossCreated = false;
+		IsWarningCreated = false;
 		Boss_Clone = Instantiate(CoinPrefab, new Vector3(transform.position.x,transform.position.y+20), Quaternion.identity) as GameObject;
 	}
 
@@ -53,9 +59,18 @@ public class EdgeCoinAppear : MonoBehaviour {
 	void Update () {
 		//if (transform.position.x > wherestarStage2) 
 		if (transform.position.x > WhereBossOccurs && Boss_Clone != null) {
+			if(!IsWarningCreated && transform.position.x > WhereBossOccurs + 40){
+				Vector2 pos=new Vector3 (transform.position.x+12f, 0, transform.position.z);
+				var clone_left = Instantiate (Warning, pos, Quaternion.identity) as GameObject;
+				clone_left.GetComponent<warning_follow> ().position = 10;
+				IsWarningCreated = true;
+			}
 			if (!IsBossCreated && transform.position.x > WhereBossOccurs + 50) {
 				CreateBoss (new Vector3 (transform.position.x + 20, transform.position.y)); // Create the boss
 				IsBossCreated = true;
+				g_up.gameObject.GetComponent<Ghost_up> ().stage = 2;
+				g_left.gameObject.GetComponent<Ghost_left> ().stage = 2;
+
 			}
 			return;
 		}

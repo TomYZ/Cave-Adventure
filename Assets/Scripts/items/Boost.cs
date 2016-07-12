@@ -5,7 +5,7 @@ public class Boost : MonoBehaviour {
 
 	private Collider2D target;
 	public float boostTime = 2.5f;
-	public float boostSpeed = 15f;
+	public float boostSpeed = 20f;
 	// Use this for initialization
 	void Start () {
 
@@ -47,7 +47,7 @@ public class Boost : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(boostTime);
 		target.gameObject.GetComponent<MainController>().isboost = false;
-		target.gameObject.GetComponent<MainController>().speed = 0f;
+		target.gameObject.GetComponent<MainController>().speed = 5f;
 		target.gameObject.GetComponent<RocketProjectile> ().boostOff = true;
 
 		Destroy(gameObject);

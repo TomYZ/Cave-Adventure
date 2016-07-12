@@ -24,13 +24,14 @@ public class Boss : MonoBehaviour {
 	private float timeElapsed2 = 0f;
 
 	void Awake(){
-		anim = GetComponent<Animator>();
-		body2d = GetComponent<Rigidbody2D> ();
-		target = GameObject.FindGameObjectWithTag("Player");
+
 	}
 
 	void Start(){
-		bossPosY = target.transform.position.y;
+		anim = GetComponent<Animator>();
+		body2d = GetComponent<Rigidbody2D> ();
+		target = GameObject.FindGameObjectWithTag("Player");
+		bossPosY = 0;
 		polyCol.enabled = false;
 		healthBar = GameObject.FindGameObjectWithTag("BossHealthBar").GetComponent<SpriteRenderer>();
 		healthScale = healthBar.transform.localScale;

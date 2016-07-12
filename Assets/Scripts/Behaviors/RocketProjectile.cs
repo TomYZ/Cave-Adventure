@@ -28,11 +28,11 @@ public class RocketProjectile : AbstractBehavior {
 				if (!upgrade && coin > 200) {
 					upgrade = true;
 					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
-					weaponUpgrade.text = "Fireball upgraded!";
+					weaponUpgrade.text = "Fireball upgraded !!";
 				}
 				if (upgrade && coin > 5) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
-					gameObject.GetComponent<MainController> ().coinCou = gameObject.GetComponent<MainController> ().coinCou - 5;
+					gameObject.GetComponent<MainController> ().updateCoin (1, -5);
 				} else {
 					CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				}
@@ -54,11 +54,11 @@ public class RocketProjectile : AbstractBehavior {
 				if (!upgrade && coin > 200) {
 					upgrade = true;
 					gameObject.GetComponent<MainController> ().updateCoin(1,-200);
-					weaponUpgrade.text = "Fireball upgraded!";
+					weaponUpgrade.text = "Fireball upgraded !!";
 				}
 				if (upgrade && coin > 5) {
 					CreateProjectileUpgrade (new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
-					gameObject.GetComponent<MainController> ().coinCou = gameObject.GetComponent<MainController> ().coinCou - 5;
+					gameObject.GetComponent<MainController> ().updateCoin (1, -5);
 				} else {
 					CreateProjectile(new Vector3 (transform.position.x + 1.5f, transform.position.y, transform.position.z));
 				}	
@@ -73,18 +73,17 @@ public class RocketProjectile : AbstractBehavior {
 		var clone = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
 
 		clone.transform.localScale = transform.localScale;
-
 	}
 
 
 
 	public void CreateProjectileUpgrade(Vector3 pos){
 		var clone = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (75, 10);
+		clone.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (58, 8);
 		var clone2 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone2.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (75, 0);
+		clone2.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (60, 0);
 		var clone3 = GameObjectUtil.Instantiate (projectilePrefab, pos) as GameObject;
-		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (75, -10);
+		clone3.gameObject.GetComponent<Rocket> ().initialVelocity = new Vector2 (58, -8);
 		clone.transform.localScale = transform.localScale;
 		clone2.transform.localScale = transform.localScale;
 		clone3.transform.localScale = transform.localScale;

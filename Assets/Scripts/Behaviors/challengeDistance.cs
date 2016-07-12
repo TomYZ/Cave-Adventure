@@ -18,7 +18,7 @@ public class challengeDistance : MonoBehaviour {
         }
 		scoreEvent.text = "";
 		challenge = PlayerPrefs.GetInt ("travel");
-		scoreEvent.text = "New Challenge, reach " +challenge+ " feets";
+		scoreEvent.text = "New challenge, reach " +challenge+ " ft.";
 		temp = 10;
     }
 	
@@ -34,14 +34,14 @@ public class challengeDistance : MonoBehaviour {
 			//gameObject.GetComponent<MainController> ().coinText.text = gameObject.GetComponent<MainController> ().coinCou.ToString();
 
 			challenge = challenge + 100;
-			scoreEvent.text = "New Challenge, reach " +challenge+ " feets";
+			scoreEvent.text = "New challenge, reach " +challenge+ " ft.";
 			PlayerPrefs.SetInt("travel", challenge);
 			PlayerPrefs.Save();
 
 			//print ("temp"+ temp);   
         }
 
-		if (dist > (temp + 15)) {
+		if (dist > (temp + 12)) {
 			scoreEvent.text = "";
 		}
 
